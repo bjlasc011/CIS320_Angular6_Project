@@ -1,0 +1,27 @@
+h1, h2, h3, h4{
+  clear: both;
+}
+label {
+  padding: 10px;
+}
+.main-container {
+  padding: 80px;
+  top: 65px;
+  min-height: 80vh;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+  background: rgba(160, 151, 150, 0.025);
+}
+.gallery-header{
+  padding: 20px 10px 10px 20px;
+}
+.cake-img{
+  width: 200px;
+  height: 200px;
+  padding: 12px;
+  object-fit: cover;
+}
+.cake-filter{
+  position: absolute;
+  top: 110px;
+  right: 160px;
+}

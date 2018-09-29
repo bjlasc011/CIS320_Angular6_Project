@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="nav-bar">
+  <mat-toolbar-row>
+    <a routerLink="/orders" class="home" routerLinkActive="active">Sweet Karoline's Cakes</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button mat-flat-button color="primary" routerLink="/cake-gallery" routerLinkActive="active">Cake Gallery</button>
+    <button mat-flat-button color="primary" routerLink="/orders" routerLinkActive="active">Get a Quote</button>
+    <span class="nav-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item color="primary" routerLink="/login" routerLinkActive="active">Login</button>
+      <button mat-menu-item color="primary" routerLink="/sign-up" routerLinkActive="active">SignUp</button>
+      <button mat-menu-item color="primary" routerLink="/account">Account</button>
+      <button mat-menu-item color="primary" routerLink="/cake-gallery">Sign Out</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,16 +1,77 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
+import { MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatTableModule, MatMenuModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { MatFileUploadModule } from 'angular-material-fileupload';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+
 import { AppComponent } from './app.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { CakeGalleryComponent } from './components/cake-gallery/cake-gallery.component';
+import { AppRoutingModule } from './routes/routes.module';
+import { FooterComponent } from './components/footer/footer.component';
+import { ImgDialogComponent } from './components/img-dialog/img-dialog.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavComponent } from './components/nav/nav.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrdersComponent,
+    CakeGalleryComponent,
+    FooterComponent,
+    ImgDialogComponent,
+    LoginComponent,
+    NavComponent,
+    PaymentComponent,
+    SignUpComponent,
+    AccountComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatFileUploadModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    MatTableModule,
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    MatNativeDateModule
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [ImgDialogComponent]
 })
 export class AppModule { }

@@ -1,0 +1,10 @@
+<div class="main-container">
+  <h1 class="gallery-header">Cake Gallery</h1>
+  <mat-form-field class="cake-filter">
+    <mat-select placeholder="Filter Cakes">
+      <mat-option *ngFor="let type of cakeTypes" [value]="type">{{type}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <img *ngFor="let cake of cakes" class="cake-img" src={{cake.url}} (click)="enlargeImgEnter(cake.url)" alt="  oops, we can't find the picture!">
+</div>
+<app-footer></app-footer>

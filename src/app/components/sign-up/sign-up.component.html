@@ -1,0 +1,117 @@
+<div class="main-container">
+  <h1 class="form-header">Sign Up for an Account</h1>
+  <mat-card>
+    <mat-card-content>
+
+      <div class="order-form">
+        <mat-form-field class="order-input name-input">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First" [(ngModel)]="firstName" required>
+        </mat-form-field>
+
+        <mat-form-field class="order-input name-input">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last" required>
+        </mat-form-field>
+
+        <mat-form-field class="order-input">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="(502)123-4567" type="tel">
+        </mat-form-field>
+
+        <mat-form-field class="order-input">
+          <input matInput placeholder="your@email.com" type="email" required>
+          <mat-label>E-mail</mat-label>
+        </mat-form-field>
+        <mat-checkbox color="primary" [(ngModel)]="newsletter">
+          sign up for newsletter
+        </mat-checkbox>
+      </div>
+
+
+      <div class="address-buffer"></div>
+      <h4 class="sub-header">Address information isn't required, but will make delivery orders more convenient </h4>
+
+      <mat-form-field class="large-input">
+        <input matInput placeholder="Address">
+        <mat-label>Address Line 1</mat-label>
+      </mat-form-field>
+      <mat-form-field class="large-input">
+        <input matInput placeholder="Apartment">
+        <mat-label>Address Line 2</mat-label>
+      </mat-form-field>
+
+      <div class="city-state-zip">
+        <mat-form-field class="order-input">
+          <input matInput placeholder="City">
+          <mat-label>City</mat-label>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="State">
+            <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="order-input">
+          <input matInput placeholder="zip-code">
+          <mat-label>Zip</mat-label>
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <div class="card-spacer"></div>
+
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field class="order-input">
+        <input matInput placeholder="Username" required>
+        <mat-label>Username</mat-label>
+      </mat-form-field>
+      <mat-form-field class="order-input">
+        <input matInput type="password" placeholder="password" required>
+        <mat-label>Password</mat-label>
+      </mat-form-field>
+      <mat-form-field class="order-input">
+        <input matInput type="password" placeholder="input password again" required>
+        <mat-label>Verify Password</mat-label>
+      </mat-form-field>
+      <div>
+        <button mat-flat-button color="primary" >Submit</button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <!-- <div class="card-spacer"></div> -->
+
+
+
+  <!--FOOTER -->
+
+  <div class="footer-container">
+
+    <div class="contact-info">
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/IG.png" class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png" class="SM-icon FB"></a>
+      <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
+      <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
+    </div>
+
+    <div class="newsletter-ft">
+      <h4 class="newsletter-header-ft">Sign up for out Newsletter!</h4>
+      <section class="newsletter-section">
+        <mat-form-field>
+          <input matInput class="input-email">
+          <mat-label class="input-label-email">Email</mat-label>
+        </mat-form-field>
+        <button mat-flat-button class="sign-up-button" color="accent">Sign up</button>
+      </section>
+    </div>
+    <!-- </div> -->
+  </div>
+
+
+
+
+  <!-- First Last Phone Email Date needed Pickup date(requested) Details Servings Budget Image drop for designed theme/type
+    Tier #=> drop down which includes all flavors frosting flavor for whole cake fillings yes/no if yes => enable a comment
+    field glueten free yes/no + pie drop down Request summary Do you want newsletter -->

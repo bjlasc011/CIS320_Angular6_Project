@@ -1,0 +1,105 @@
+<div class="main-container">
+  <h1> Account Details </h1>
+  <mat-card>
+    <mat-card-content>
+      <div class="account">
+        <!-- <div class="info"> -->
+          <div class="details">{{firstName}} {{lastName}}</div>
+          <div class="details">{{address1}}<span *ngIf="address2">, {{address2}}</span></div>
+          <div class="details">{{city}}, {{state}} {{zip}}</div>
+        <!-- </div> -->
+        <div class="info">
+          <div class="spacer">Phone</div>
+          <div class="details">{{phone}}</div>
+        </div>
+        <div class="info">
+          <div class="spacer">Email</div>
+          <div class="details">{{email}}</div>
+        </div>
+
+
+      </div>
+      <div class="order-spacer"></div>
+      <div class="orders">
+        <div>
+          <table>
+            <tr>
+              <th>Order Date</th>
+              <th>Fullfilment Date</th>
+              <th>Order Number</th>
+              <th>Price</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>{{orders[0].orderDate}}</td>
+              <td>{{orders[0].fullfilledDate}}</td>
+              <td>{{orders[0].orderNum}}</td>
+              <td>{{orders[0].price}}</td>
+              <td>{{orders[0].description.substring(0,10)}}...</td>
+            </tr>
+            <tr>
+              <td>{{orders[1].orderDate}}</td>
+              <td>{{orders[1].fullfilledDate}}</td>
+              <td>{{orders[1].orderNum}}</td>
+              <td>{{orders[1].price}}</td>
+              <td>{{orders[1].description.substring(0,10)}}...</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+  <div class="card-vert-spacer">
+
+    <h2>
+      <mat-icon class="card-icon">credit_card</mat-icon>Payment Methods
+    </h2>
+  </div>
+  <mat-card class="payment-card">
+    <mat-card-content>
+
+      <div class="card-info">
+        <div class="card-details">
+          <mat-icon class="icon">edit</mat-icon> {{cardType}}
+        </div>
+        <div class="card-details2">****{{ cardNumber?.substring( (cardNumber.length - 4) ) }}</div>
+        <div class="card-details2">{{expDate}}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="sm-vert-spacer"></div>
+  <mat-card class="payment-card">
+    <mat-card-content>
+
+      <div class="card-info">
+        <div class="card-details">
+          <mat-icon class="icon">edit</mat-icon> {{cardType1}}
+        </div>
+        <div class="card-details2">****{{ cardNumber1?.substring( (cardNumber.length - 4) ) }}</div>
+        <div class="card-details2">{{expDate1}}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="footer-container">
+
+    <div class="contact-info">
+      <a href="https//www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/IG.png" class="SM-icon FB"></a>
+      <a href="https//www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png" class="SM-icon FB"></a>
+      <a class="phone-email" href="tel1(502)417-8179">(502) 417-8179</a>
+      <a class="phone-email" href="mailtosweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
+    </div>
+
+    <div class="newsletter-ft">
+      <h4 class="newsletter-header-ft">Sign up for out Newsletter!</h4>
+      <section class="newsletter-section">
+        <mat-form-field>
+          <input matInput class="input-email">
+          <mat-label class="input-label-email">Email</mat-label>
+        </mat-form-field>
+        <button mat-flat-button class="sign-up-button" color="accent">Sign up</button>
+      </section>
+    </div>
+  </div>
+
+</div>
