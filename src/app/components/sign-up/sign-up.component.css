@@ -51,7 +51,7 @@ label {
   clear: both;
 }
 .form-header {
-  padding: 20px 10px 0px 20px;
+  padding: 20px 10px 10px 20px;
   margin: 0px;
 }
 ::ng-deep .calendar {

@@ -126,16 +126,7 @@
         <mat-label>Comments</mat-label>
         <textarea matInput placeholder="Tell us about your cake, or just say hello"></textarea>
       </mat-form-field>
-
-      <div [fileUploadInputFor]="fileUploadQueue" class="upload-drop-zone">
-        <div style="height: 40%;"></div>
-        Drag and drop files here to show us what you like
-      </div>
-      <div style="width: 50%">
-        <mat-file-upload-queue #fileUploadQueue [fileAlias]="'file'" [httpUrl]="'C:\Users\BJLAS\Pictures\Test'" multiple>
-          <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
-        </mat-file-upload-queue>
-      </div>
+        
       <div></div>
     </mat-card-content>
   </mat-card>
@@ -181,8 +172,8 @@
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/IG.png" class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png" class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/IG.png" class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/FBicon.svg.png" class="SM-icon FB"></a>
       <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
     </div>
