@@ -4,9 +4,9 @@
     <mat-card-content>
       <div class="account">
         <!-- <div class="info"> -->
-          <div class="details">{{firstName}} {{lastName}}</div>
-          <div class="details">{{address1}}<span *ngIf="address2">, {{address2}}</span></div>
-          <div class="details">{{city}}, {{state}} {{zip}}</div>
+        <div class="details">{{firstName}} {{lastName}}</div>
+        <div class="details">{{address1}}<span *ngIf="address2">, {{address2}}</span></div>
+        <div class="details">{{city}}, {{state}} {{zip}}</div>
         <!-- </div> -->
         <div class="info">
           <div class="spacer">Phone</div>
@@ -29,20 +29,20 @@
               <th>Order Number</th>
               <th>Price</th>
               <th>Description</th>
+              <th>Payment</th>
             </tr>
-            <tr>
-              <td>{{orders[0].orderDate}}</td>
-              <td>{{orders[0].fullfilledDate}}</td>
-              <td>{{orders[0].orderNum}}</td>
-              <td>{{orders[0].price}}</td>
-              <td>{{orders[0].description.substring(0,10)}}...</td>
-            </tr>
-            <tr>
-              <td>{{orders[1].orderDate}}</td>
-              <td>{{orders[1].fullfilledDate}}</td>
-              <td>{{orders[1].orderNum}}</td>
-              <td>{{orders[1].price}}</td>
-              <td>{{orders[1].description.substring(0,10)}}...</td>
+            <tr *ngFor="let order of orders">
+              <td>{{order.orderDate}}</td>
+              <td>{{order.fullfilledDate}}</td>
+              <td>{{order.orderNum}}</td>
+              <td>{{order.price}}</td>
+              <td>{{order.description.substring(0,10)}}...</td>
+              <td *ngIf="order.payment">{{order.payment}}</td>
+              <td *ngIf="!order.payment">
+                <button mat-flat-button color="primary">
+                  <mat-icon>add_box</mat-icon>Payment
+                </button>
+              </td>
             </tr>
           </table>
         </div>
@@ -81,6 +81,10 @@
       </div>
     </mat-card-content>
   </mat-card>
+  <div class="sm-vert-spacer"></div>
+  <button mat-flat-button color="primary">
+    <mat-icon>add_box</mat-icon>Add Payment Method
+  </button>
   <div class="footer-container">
 
     <div class="contact-info">

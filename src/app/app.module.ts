@@ -6,7 +6,6 @@ import { MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatTableModule
 import { MatCardModule } from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { MatFileUploadModule } from 'angular-material-fileupload';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -26,7 +25,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ImgDialogComponent } from './components/img-dialog/img-dialog.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
-import { PaymentComponent } from './components/payment/payment.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AccountComponent } from './components/account/account.component';
 
@@ -39,7 +37,6 @@ import { AccountComponent } from './components/account/account.component';
     ImgDialogComponent,
     LoginComponent,
     NavComponent,
-    PaymentComponent,
     SignUpComponent,
     AccountComponent,
   ],
@@ -52,7 +49,6 @@ import { AccountComponent } from './components/account/account.component';
     MatCheckboxModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatFileUploadModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,

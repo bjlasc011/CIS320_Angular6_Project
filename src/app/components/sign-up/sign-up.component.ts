@@ -17,4 +17,8 @@ export class SignUpComponent implements OnInit {
   states: string[] = [
     'Kentucky', 'Indiana', 'Tennessee', 'Ohio'
   ];
+  cardTypes: string[] = ["Visa", "Mastercard", "Discover", "AMEX"];
+  years: string[] = ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
+  months: string[] = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP","OCT", "NOV", "DEC"];
+
 }

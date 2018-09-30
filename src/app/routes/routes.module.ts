@@ -5,7 +5,6 @@ import { OrdersComponent } from '../components/orders/orders.component';
 import { LoginComponent } from '../components/login/login.component';
 import { SignUpComponent } from '../components/sign-up/sign-up.component';
 import { AccountComponent } from '../components/account/account.component';
-import { PaymentComponent } from '../components/payment/payment.component';
 
 const ROUTES: Routes = [
   { path: 'cake-gallery', component: CakeGalleryComponent },
@@ -13,8 +12,7 @@ const ROUTES: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'sign-up', component: SignUpComponent },
   { path: 'account', component: AccountComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: '**', component: CakeGalleryComponent }
+  { path: '**', component: OrdersComponent }
 
 ];
 

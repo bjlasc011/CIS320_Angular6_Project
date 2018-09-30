@@ -12,6 +12,10 @@ label {
 ::ng-deep mat-card{
   width: 100%;
 }
+.card-icon {
+  padding-top:20px;
+  padding-right: 20px;
+}
 .main-container {
   padding: 25px;
   position: absolute;
@@ -25,6 +29,10 @@ label {
   left: 20%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
+}
+.sm-input{
+  padding: 0px 20px 5px 20px ;
+  width: 130px;
 }
 .order-form > label {
   padding: 20px 10px 25px 5px;
@@ -50,9 +58,11 @@ label {
 .city-state-zip {
   clear: both;
 }
+.payment-header{
+  padding: 20px;
+}
 .form-header {
-  padding: 20px 10px 0px 20px;
-  margin: 0px;
+  padding: 20px 10px 10px 20px;
 }
 ::ng-deep .calendar {
   float: left;

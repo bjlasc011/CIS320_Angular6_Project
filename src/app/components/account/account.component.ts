@@ -29,7 +29,8 @@ export class AccountComponent implements OnInit {
   state = "KY";
   zip = "40243";
   orders = [
-    {orderDate: "5/15/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla"},
-    {orderDate: "6/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer"}
+    {orderDate: "5/15/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Visa ***4562"},
+    {orderDate: "6/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer", payment: "Visa ***4562"},
+    {orderDate: "5/2/2018", fullfilledDate: "pending", orderNum: "1665888", price: "$102.10", description: "Full sheet cake (serves 72)", payment: undefined},
   ]
 }
