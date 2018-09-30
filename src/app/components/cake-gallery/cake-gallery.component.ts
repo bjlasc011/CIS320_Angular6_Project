@@ -29,7 +29,7 @@ export class CakeGalleryComponent implements OnInit {
   }
 
   cakes: Cake[] = [
-    { url: `${this.baseUrl}/assets/bacon_cupcakes.png`, comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
+    { url: this.url(this.baseUrl + '/assets/bacon_cupcakes.png'), comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
     { url: `${this.baseUrl}/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
     { url: `${this.baseUrl}/assets/big_flower.png`, comments: '', cakeTypes: [] },
     { url: `${this.baseUrl}/assets/bunny.png`, comments: '', cakeTypes: [] },
