@@ -16,11 +16,9 @@ export class CakeGalleryComponent implements OnInit {
   constructor(
     private router: Router,
     private dialog: MatDialog,
-    public sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer
   ) { }
-
   baseUrl: string = "E:/Iteration2/KarolinesCakes";
-
   c: any = {
     all: "All", basic: "Basic", premium: "Premium", seasonal: "Seasonal", birthday:"Birthday", wedding: "Wedding"}
 
@@ -33,7 +31,7 @@ export class CakeGalleryComponent implements OnInit {
   }
 
   cakes: Cake[] = [
-    { url: `${this.baseUrl}/assets/bacon_cupcakes.png`, comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
+    { url: this.url(this.baseUrl + '/assets/bacon_cupcakes.png'), comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
     { url: `${this.baseUrl}/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
     { url: `${this.baseUrl}/assets/big_flower.png`, comments: '', cakeTypes: [] },
     { url: `${this.baseUrl}/assets/bunny.png`, comments: '', cakeTypes: [] },

@@ -12,14 +12,12 @@ const ROUTES: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'sign-up', component: SignUpComponent },
   { path: 'account', component: AccountComponent },
-  { path: '**', component: CakeGalleryComponent }
+  { path: '**', component: OrdersComponent }
 
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(ROUTES, {useHash:true})
-  ],
+  imports: [RouterModule.forRoot(ROUTES, {useHash:true})],
   exports: [RouterModule],
   providers: []
 })

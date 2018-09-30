@@ -27,7 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AccountComponent } from './components/account/account.component';
-import { SafePipe } from './safe.pipe';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { SafePipe } from './safe.pipe';
     NavComponent,
     SignUpComponent,
     AccountComponent,
-    SafePipe
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
