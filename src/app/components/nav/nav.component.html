@@ -2,13 +2,16 @@
   <mat-toolbar-row>
       <a routerLink="/orders" class="home" routerLinkActive="active">Sweet Karoline's Cakes</a>
     <button mat-flat-button color="primary" routerLink="/cake-gallery" routerLinkActive="active">Cake Gallery</button>
-    <button mat-flat-button color="primary" routerLink="/orders" routerLinkActive="active">Get a Quote</button>
+    <button mat-flat-button color="primary" routerLink="/orders" routerLinkActive="active">Request a Cake</button>
+    <button mat-flat-button color="primary" routerLink="/products" routerLinkActive="active">Menu</button>
+    <button mat-flat-button color="primary" routerLink="/contact" routerLinkActive="active">Contact</button>
     <span class="nav-spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon id="vert-icon">more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item color="primary" routerLink="/login" routerLinkActive="active">Login</button>
+      <button mat-menu-item color="primary" (click)="openNewDialog()">Login</button>
+      <!-- <button mat-menu-item color="primary" routerLink="/login" routerLinkActive="active">Login</button> -->
       <button mat-menu-item color="primary" routerLink="/sign-up" routerLinkActive="active">SignUp</button>
       <button mat-menu-item color="primary" routerLink="/account">Account</button>
       <button mat-menu-item color="primary" routerLink="/orders">Sign Out</button>

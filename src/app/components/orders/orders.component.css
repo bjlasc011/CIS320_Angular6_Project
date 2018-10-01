@@ -18,9 +18,8 @@ label {
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
-  flex-basis: 750px;
   max-width: 60%;
-  min-width: 750px;
+  min-width: 60%;
   left: 20%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
@@ -33,7 +32,7 @@ label {
 }
 .sm-input{
   padding: 0px 20px 5px 20px ;
-  width: 130px;
+  width: 100px;
 }
 .order-radio {
   float: left;
@@ -65,6 +64,13 @@ label {
 }
 ::ng-deep .file-drop {
   float: left;
+}
+.clear-both {
+  clear: both;
+}
+::ng-deep mat-icon {
+  cursor: pointer;
+  color: #3f51b5;
 }
 ::ng-deep .upload-drop-zone {
   border: dashed 3px rgba(200,200,200,0.8);

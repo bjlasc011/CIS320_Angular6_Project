@@ -23,6 +23,10 @@
   align-content: center;
   vertical-align: middle;
 }
+::ng-deep mat-icon {
+  cursor: pointer;
+  color: #3f51b5;
+}
 .contact-info{
   font-size: 1.2rem;
   height: 175px;

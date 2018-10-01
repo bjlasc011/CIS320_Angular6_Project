@@ -1,5 +1,5 @@
 <div class="main-container">
-  <h1 class="form-header">Quote Request Form</h1>
+  <h1 class="form-header">Order Request Form</h1>
   <mat-card>
     <mat-card-content>
 
@@ -126,7 +126,34 @@
         <mat-label>Comments</mat-label>
         <textarea matInput placeholder="Tell us about your cake, or just say hello"></textarea>
       </mat-form-field>
+<<<<<<< HEAD
       <div></div>
+=======
+
+      <div class="center clear-both">
+        <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)">
+          <span><mat-icon>photo</mat-icon></span>
+        </file-drop>
+        <div class="upload-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="upload-name-style">
+              <tr *ngFor="let item of files; let i=index">
+                <td>{{ item.relativePath }}</td>
+                <td>
+                  <mat-icon (click)="deleteImg(item)">cancel</mat-icon>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+>>>>>>> dev
     </mat-card-content>
   </mat-card>
   <div class="address-buffer"></div>
@@ -143,12 +170,16 @@
         </mat-form-field>
         <mat-form-field class="sm-input">
           <mat-select placeholder="Card Type">
-            <mat-option *ngFor="let cardType of cardTypes" [value]="cardType">{{cardType}}</mat-option>
+            <mat-option *ngFor="let cardType of cardTypes" [value]="cardType" >{{cardType}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="order-input">
           <input matInput minlength="16" maxlength="16" placeholder="**** **** **** 1234">
           <mat-label>Card Number</mat-label>
+        </mat-form-field>
+        <mat-form-field class="sm-input">
+          <input matInput minlength="3" maxlength="3">
+          <mat-label>CVV</mat-label>
         </mat-form-field>
         <mat-form-field class="sm-input">
           <mat-select placeholder="Exp Month">

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatTableModule, MatMenuModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,6 +16,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FileDropModule } from 'ngx-file-drop';
 
 import { AppComponent } from './app.component';
 import { OrdersComponent } from './components/orders/orders.component';
@@ -28,6 +30,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AccountComponent } from './components/account/account.component';
 import { ProductsComponent } from './components/products/products.component';
+<<<<<<< HEAD
+=======
+import { ContactComponent } from './components/contact/contact.component';
+import { AddPaymentMethodComponent } from './components/add-payment-method/add-payment-method.component';
+>>>>>>> dev
 
 @NgModule({
   declarations: [
@@ -40,11 +47,18 @@ import { ProductsComponent } from './components/products/products.component';
     NavComponent,
     SignUpComponent,
     AccountComponent,
+<<<<<<< HEAD
     ProductsComponent
+=======
+    ProductsComponent,
+    ContactComponent,
+    AddPaymentMethodComponent
+>>>>>>> dev
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FileDropModule,
     FormsModule,
     MatButtonModule,
     MatCardModule,
@@ -52,6 +66,7 @@ import { ProductsComponent } from './components/products/products.component';
     MatDatepickerModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatNativeDateModule,
@@ -70,6 +85,10 @@ import { ProductsComponent } from './components/products/products.component';
     MatNativeDateModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ImgDialogComponent]
+  entryComponents: [
+    ImgDialogComponent,
+    AddPaymentMethodComponent,
+    LoginComponent
+  ]
 })
 export class AppModule { }
