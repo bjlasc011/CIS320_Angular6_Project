@@ -1,0 +1,45 @@
+.container{
+  padding: 25px;
+  position: absolute;
+  top: 80px;
+  min-height: 100vh;
+  max-width: 70%;
+  min-width: 70%;
+  left: 15%;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+  background: rgba(160, 151, 150, 0.025);
+}
+::ng-deep mat-icon {
+  cursor: pointer;
+  color: #3f51b5;
+}
+.spacer{
+  height: 20px;
+  width: 100%;
+}
+.category-card {
+  width: 90%;
+  margin: 10px;
+}
+.flavor, .flavor > * {
+  float: left;
+  height: 25px;
+  width: 150px;
+  padding: 10px 10px 10px 0px;
+  margin: 10px 10px 10px 0px;
+}
+td {
+  text-align: center; 
+  vertical-align: middle;
+}
+.grid-hover{
+}
+.grid-hover:hover {
+  background: #3f51b5;
+  font-size: 1.03rem;
+  color: azure;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  transition: color 0.7s linear 0.2s;
+  transition: background 0.05s linear 0s;
+  transition: font-size 0.2s linear 0s;
+}

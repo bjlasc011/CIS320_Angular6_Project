@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FooterComponent } from '../footer/footer.component';
 import { Router } from '@angular/router';
+import { UploadEvent, UploadFile, FileComponent, FileSystemFileEntry } from 'ngx-file-drop';
 
 @Component({
   selector: 'app-orders',
@@ -16,6 +16,19 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     this.minDate = new Date();
     this.deliveryType = 'undecided';
+  }
+  public files: UploadFile[] = [];
+ 
+  public dropped(event: UploadEvent) {
+    event.files.forEach((f) => {
+    this.files.push(f);
+    })
+  }
+
+  public deleteImg(uploadFile: UploadFile){
+    this.files = this.files.filter((f)=>{
+      return f.fileEntry.name !== uploadFile.fileEntry.name;
+    })
   }
   newsletter: boolean = true;
   glutenFree: boolean = false;
@@ -39,14 +52,6 @@ export class OrdersComponent implements OnInit {
     '10" (serves 28-35)',
     '1/2 sheet cake 11"x15" (serves 54)',
     'Full sheet cake (serves 72)'
-  ];
-  flavorGroupsGF: Object[] = [
-    {
-      name: 'Gluten Free',
-      flavors: [
-        'Vanilla', 'Chocolate', 'Carrot', 'Strawberry', 'Banana'
-      ]
-    }
   ];
   flavorGroups: Object[] = [
     {
@@ -74,7 +79,20 @@ export class OrdersComponent implements OnInit {
       flavors: [
         'Vanilla', 'Chocolate', 'Carrot', 'Strawberry', 'Banana'
       ]
+    },
+    {
+      name: 'Cupcakes',
+      flavors: [
+        'Basic', 'Premium', 'Mini Cupcakes Basic', 'Mini Cupcakes Premium', 'Jumbo Cupcake', 'Cupcake Cake / Smash Cake'
+      ]
+    },
+    {
+      name: 'More Treats',
+      flavors: [
+        'Cookie Cake', '9" Pie', 'Cake Pops', 'Cakes with Fresh Fruit'
+      ]
     }
+    
   ]
 
   frostings: String[] = [

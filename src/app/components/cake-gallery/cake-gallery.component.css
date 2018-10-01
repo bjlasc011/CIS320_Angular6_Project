@@ -25,3 +25,7 @@ label {
   top: 110px;
   right: 160px;
 }
+::ng-deep mat-icon {
+  cursor: pointer;
+  color: #3f51b5;
+}

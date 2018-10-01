@@ -61,6 +61,10 @@ label {
 .payment-header{
   padding: 20px;
 }
+::ng-deep mat-icon {
+  cursor: pointer;
+  color: #3f51b5;
+}
 .form-header {
   padding: 20px 10px 10px 20px;
 }
