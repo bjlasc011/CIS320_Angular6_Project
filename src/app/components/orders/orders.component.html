@@ -126,9 +126,6 @@
         <mat-label>Comments</mat-label>
         <textarea matInput placeholder="Tell us about your cake, or just say hello"></textarea>
       </mat-form-field>
-<<<<<<< HEAD
-      <div></div>
-=======
 
       <div class="center clear-both">
         <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)">
@@ -153,46 +150,16 @@
         </div>
       </div>
 
->>>>>>> dev
     </mat-card-content>
   </mat-card>
   <div class="address-buffer"></div>
 
   <mat-card>
     <mat-card-content>
-      <h3>
-        <mat-icon class="card-icon">credit_card</mat-icon>Payment MethodsCredit Card
-      </h3>
-      <div class="credit-card">
-        <mat-form-field class="order-input">
-          <input matInput placeholder="Name on Card">
-          <mat-label>Name on Card</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Card Type">
-            <mat-option *ngFor="let cardType of cardTypes" [value]="cardType" >{{cardType}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="order-input">
-          <input matInput minlength="16" maxlength="16" placeholder="**** **** **** 1234">
-          <mat-label>Card Number</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <input matInput minlength="3" maxlength="3">
-          <mat-label>CVV</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Exp Month">
-            <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Exp Year">
-            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <button mat-flat-button color="primary">Submit</button>
+      <h3>Pay with PayPal</h3>
+      <a href="https://www.paypal.com/us/signin" target="blank">
+        <img src="E:/Iteration2/KarolinesCakes/assets/pp.png">
+      </a>
     </mat-card-content>
   </mat-card>
   <div class="address-buffer"></div>
@@ -202,8 +169,10 @@
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/IG.png" class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/FBicon.svg.png" class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/IG.png"
+          class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/FBicon.svg.png"
+          class="SM-icon FB"></a>
       <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
     </div>
@@ -218,12 +187,4 @@
         <button mat-flat-button class="sign-up-button" color="accent">Sign up</button>
       </section>
     </div>
-    <!-- </div> -->
   </div>
-
-
-
-
-  <!-- First Last Phone Email Date needed Pickup date(requested) Details Servings Budget Image drop for designed theme/type
-    Tier #=> drop down which includes all flavors frosting flavor for whole cake fillings yes/no if yes => enable a comment
-    field glueten free yes/no + pie drop down Request summary Do you want newsletter -->

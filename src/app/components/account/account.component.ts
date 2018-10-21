@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AddPaymentMethodComponent } from '../add-payment-method/add-payment-method.component';
+import { supportsWebAnimations } from '@angular/animations/browser/src/render/web_animations/web_animations_driver';
 
 @Component({
   selector: 'app-account',
@@ -28,8 +28,9 @@ export class AccountComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  edit: boolean = false;
+  addressEdit: boolean = false;
+  phoneEdit: boolean = false;
+  emailEdit: boolean = false;
   firstName = "Ben";
   lastName = "Lascurain";
   phone = "(502) 662-5800";
@@ -40,29 +41,26 @@ export class AccountComponent implements OnInit {
   state = "KY";
   zip = "40243";
   orders = [
-    { orderDate: "5/15/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Visa ***4562" },
-    { orderDate: "6/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer", payment: "Visa ***4562" },
-    { orderDate: "5/2/2018", fullfilledDate: "pending", orderNum: "1665888", price: "$102.10", description: "Full sheet cake (serves 72)", payment: undefined },
+    { orderDate: "5/15/2018", deliveryDate:  "5/30/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Complete" },
+    { orderDate: "6/1/2018", deliveryDate: "7/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer", payment: "Complete" },
+    { orderDate: "5/2/2018", deliveryDate: "11/10/2018", fullfilledDate: "pending", orderNum: "1665888", price: "$102.10", description: "Full sheet cake (serves 72)", payment: undefined },
   ]
-  openDialog: MatDialogRef<AddPaymentMethodComponent, any>;
+  states: string[] = [
+    'KY', 'IN', 'TN', 'OH'
+  ];
 
-  openNewDialog() {
-    this.openDialog = this.dialog.open(AddPaymentMethodComponent, {
-      width: '600px',
-      height: '500px'
-    });
-    this.openDialog.componentInstance.onSubmit.subscribe((data) => {
-      console.log(data);
-      if (data.close) {
-        this.openDialog.close();
-        this.cards.push({cardNumber: data.cardNumber, expDate: `${data.month} ${data.year}`, cardType: data.cardType });
-      }
-    });
-    this.openDialog.componentInstance.onCancel.subscribe((data) => {
-      (data.close) ? this.openDialog.close() : null;
-    })
+  submit(){
+    this.emailEdit = false;
+    this.addressEdit = false;
+    this.phoneEdit = false;
   }
-  addPaymentMethod() {
-    this.openNewDialog();
+  editPhone(){
+    this.phoneEdit = true;
+  }
+  editAddress(){
+    this.addressEdit = true;
+  }
+  editEmail(){
+    this.emailEdit = true;
   }
 }

@@ -2,29 +2,103 @@
   <h1> Account Details </h1>
   <mat-card>
     <mat-card-content>
+
       <div class="account">
-        <!-- <div class="info"> -->
-        <div class="details">{{firstName}} {{lastName}}</div>
-        <div class="details">{{address1}}<span *ngIf="address2">, {{address2}}</span></div>
-        <div class="details">{{city}}, {{state}} {{zip}}</div>
-        <!-- </div> -->
-        <div class="info">
-          <div class="spacer">Phone</div>
-          <div class="details">{{phone}}</div>
-        </div>
-        <div class="info">
-          <div class="spacer">Email</div>
-          <div class="details">{{email}}</div>
+        <h2>
+          Address
+          <mat-icon class="icon" (click)="editAddress()">edit</mat-icon>
+        </h2>
+        <div *ngIf="!addressEdit">
+          <div class="details">
+            {{firstName}} {{lastName}}
+          </div>
+          <div class="details">{{address1}}<span *ngIf="address2">, {{address2}}</span></div>
+          <div class="details">{{city}}, {{state}} {{zip}}</div>
         </div>
 
+        <mat-form-field class="order-input name-input" *ngIf="addressEdit">
+          <mat-label>First Name</mat-label>
+          <input matInput required [(ngModel)]="firstName">
+        </mat-form-field>
+        <mat-form-field class="order-input name-input" *ngIf="addressEdit">
+          <mat-label>Last Name</mat-label>
+          <input matInput required [(ngModel)]="lastName">
+        </mat-form-field>
+        <div></div>
+        <mat-form-field class="large-input" *ngIf="addressEdit">
+          <input matInput [(ngModel)]="address1">
+          <mat-label>Address Line 1</mat-label>
+        </mat-form-field>
+        <mat-form-field class="large-input" *ngIf="addressEdit">
+          <input matInput [(ngModel)]="address2">
+          <mat-label>Address Line 2</mat-label>
+        </mat-form-field>
+
+        <div class="city-state-zip" *ngIf="addressEdit">
+          <mat-form-field class="order-input">
+            <input matInput [(ngModel)]="city">
+            <mat-label>City</mat-label>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="State" [(ngModel)]="state">
+              <mat-option *ngFor="let st of states" [value]="st">{{st}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="order-input">
+            <input matInput [(ngModel)]="zip">
+            <mat-label>Zip</mat-label>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="submit()">
+            Save
+          </button>
+        </div>
+
+        <div>
+          <h2>
+            Phone
+            <mat-icon class="icon" (click)="editPhone()">edit</mat-icon>
+          </h2>
+          <div class="details" *ngIf="!phoneEdit">{{phone}}</div>
+        </div>
+        <div *ngIf="phoneEdit">
+          <mat-form-field class="order-input">
+            <input matInput type="text" [(ngModel)]="phone">
+            <mat-label>Phone Number</mat-label>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="submit()">
+            Save
+          </button>
+        </div>
+
+
+        <div>
+          <h2>
+            Email
+            <mat-icon class="icon" (click)="editEmail()">edit</mat-icon>
+          </h2>
+          <div class="details" *ngIf="!emailEdit">{{email}}</div>
+        </div>
+        <div *ngIf="emailEdit">
+          <mat-form-field class="order-input">
+            <input matInput type="text" [(ngModel)]="email">
+            <mat-label>Phone Number</mat-label>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="submit()">
+            Save
+          </button>
+        </div>
 
       </div>
+
+
+
       <div class="order-spacer"></div>
       <div class="orders">
         <div>
           <table>
             <tr>
               <th>Order Date</th>
+              <th>Delivery Date</th>
               <th>Fullfilment Date</th>
               <th>Order Number</th>
               <th>Price</th>
@@ -33,14 +107,14 @@
             </tr>
             <tr *ngFor="let order of orders">
               <td>{{order.orderDate}}</td>
+              <td>{{order.deliveryDate}}</td>
               <td>{{order.fullfilledDate}}</td>
               <td>{{order.orderNum}}</td>
               <td>{{order.price}}</td>
               <td>{{order.description.substring(0,10)}}...</td>
-              <td *ngIf="order.payment">{{order.payment}}</td>
-              <td *ngIf="!order.payment">
-                  <mat-icon color="primary">add_box</mat-icon>
-              </td>
+              <td>{{order.payment}}</td>
+                <mat-icon *ngIf="order.fullfilledDate === 'pending'" class="icon" (click)="editOrder()">edit</mat-icon>
+                <mat-icon *ngIf="order.fullfilledDate !== 'pending'" class="icon" >check</mat-icon>
             </tr>
           </table>
         </div>
@@ -48,35 +122,14 @@
 
     </mat-card-content>
   </mat-card>
-  <div class="card-vert-spacer">
 
-    <h2>
-      <mat-icon class="card-icon">credit_card</mat-icon>Payment Methods
-    </h2>
-  </div>
-
-  <mat-card class="payment-card" *ngFor="let card of cards">
-    <mat-card-content>
-      <div class="card-info">
-        <div class="card-details">
-          <mat-icon class="icon">edit</mat-icon> {{card.cardType}}
-        </div>
-        <div class="card-details2">****{{ card.cardNumber?.substring( (card.cardNumber.length - 4) ) }}</div>
-        <div class="card-details2">{{card.expDate}}</div>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <div class="sm-vert-spacer"></div>
-  
-  <div class="sm-vert-spacer"></div>
-  <button mat-flat-button color="primary" (click)="addPaymentMethod()">
-    <mat-icon id="bttn-icon">add_box</mat-icon>Add Payment Method
-  </button>
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https//www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/IG.png" class="SM-icon FB"></a>
-      <a href="https//www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/FBicon.svg.png" class="SM-icon FB"></a>
+      <a href="https//www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/IG.png"
+          class="SM-icon FB"></a>
+      <a href="https//www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/FBicon.svg.png"
+          class="SM-icon FB"></a>
       <a class="phone-email" href="tel1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailtosweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
     </div>

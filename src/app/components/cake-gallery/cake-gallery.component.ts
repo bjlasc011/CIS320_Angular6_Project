@@ -10,12 +10,6 @@ import { SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./cake-gallery.component.css']
 })
 export class CakeGalleryComponent implements OnInit {
-<<<<<<< HEAD
-  static get parameters() {
-    return [DomSanitizer];
-  }
-=======
->>>>>>> dev
   constructor(
     private router: Router,
     private dialog: MatDialog
