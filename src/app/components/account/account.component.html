@@ -105,7 +105,7 @@
               <th>Description</th>
               <th>Payment</th>
             </tr>
-            <tr *ngFor="let order of orders">
+            <tr *ngFor="let order of orders; let i = index">
               <td>{{order.orderDate}}</td>
               <td>{{order.deliveryDate}}</td>
               <td>{{order.fullfilledDate}}</td>
@@ -113,7 +113,7 @@
               <td>{{order.price}}</td>
               <td>{{order.description.substring(0,10)}}...</td>
               <td>{{order.payment}}</td>
-                <mat-icon *ngIf="order.fullfilledDate === 'pending'" class="icon" (click)="editOrder()">edit</mat-icon>
+                <mat-icon *ngIf="order.fullfilledDate === 'pending'" class="icon" (click)="openEditOrder(order)">edit</mat-icon>
                 <mat-icon *ngIf="order.fullfilledDate !== 'pending'" class="icon" >check</mat-icon>
             </tr>
           </table>

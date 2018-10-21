@@ -31,7 +31,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AccountComponent } from './components/account/account.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { OrderEditComponent } from './order-edit/order-edit.component';
+import { OrderEditComponent } from './components/order-edit/order-edit.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +80,8 @@ import { OrderEditComponent } from './order-edit/order-edit.component';
   bootstrap: [AppComponent],
   entryComponents: [
     ImgDialogComponent,
-    LoginComponent
+    LoginComponent,
+    OrderEditComponent
   ]
 })
 export class AppModule { }

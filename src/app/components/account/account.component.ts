@@ -1,7 +1,8 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { supportsWebAnimations } from '@angular/animations/browser/src/render/web_animations/web_animations_driver';
+import { OrderEditComponent, IEditOrder } from '../order-edit/order-edit.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -13,21 +14,15 @@ export class AccountComponent implements OnInit {
   constructor(
     private dialog: MatDialog
   ) { }
-  cards: any = [
-    {
-      cardNumber: "1234567890123456",
-      expDate: "DEC 2020",
-      cardType: "Visa"
-    },
-    {
-      cardNumber: "1234567890121108",
-      expDate: "SEP 2019",
-      cardType: "AMEX"
-    },
-  ]
 
   ngOnInit() {
   }
+
+  ngOnDestroy() {
+    this.editFormSub.unsubscribe();
+  }
+
+  editFormSub: Subscription;
   addressEdit: boolean = false;
   phoneEdit: boolean = false;
   emailEdit: boolean = false;
@@ -40,8 +35,8 @@ export class AccountComponent implements OnInit {
   city = "Louisville";
   state = "KY";
   zip = "40243";
-  orders = [
-    { orderDate: "5/15/2018", deliveryDate:  "5/30/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Complete" },
+  orders: IEditOrder[] = [
+    { orderDate: "5/15/2018", deliveryDate: "5/30/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Complete" },
     { orderDate: "6/1/2018", deliveryDate: "7/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer", payment: "Complete" },
     { orderDate: "5/2/2018", deliveryDate: "11/10/2018", fullfilledDate: "pending", orderNum: "1665888", price: "$102.10", description: "Full sheet cake (serves 72)", payment: undefined },
   ]
@@ -49,18 +44,47 @@ export class AccountComponent implements OnInit {
     'KY', 'IN', 'TN', 'OH'
   ];
 
-  submit(){
+  submit() {
     this.emailEdit = false;
     this.addressEdit = false;
     this.phoneEdit = false;
   }
-  editPhone(){
+  editPhone() {
     this.phoneEdit = true;
   }
-  editAddress(){
+  editAddress() {
     this.addressEdit = true;
   }
-  editEmail(){
+  editEmail() {
     this.emailEdit = true;
   }
+
+
+  openEditOrder(o: any): void {
+    const dialogRef = this.dialog.open(OrderEditComponent, {
+      width: '700px',
+      height: '700px',
+      data:
+      {
+        orderDate: o.orderDate,
+        deliveryDate: o.deliveryDate,
+        fullfilledDate: o.fullfilledDate,
+        orderNum: o.orderNum,
+        price: o.price,
+        description: o.description,
+        payment: o.payment
+      }
+    });
+    console.log(o.orderDate);
+    dialogRef.afterClosed().subscribe(result => {
+      o.orderDate = result.orderDate
+        // deliveryDate: o.deliveryDate,
+        // fullfilledDate: o.fullfilledDate,
+        // orderNum: o.orderNum,
+        // price: o.price,
+        // description: o.description,
+        // payment: o.payment
+    })
+  }
+
 }
