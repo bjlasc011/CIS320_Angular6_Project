@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { FooterComponent } from '../footer/footer.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { OrderEditComponent, IEditOrder } from '../order-edit/order-edit.component';
 import { Subscription } from 'rxjs';
@@ -10,22 +9,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-
-  constructor(
-    private dialog: MatDialog
-  ) { }
-
-  ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    this.editFormSub.unsubscribe();
-  }
-
+  cancel: boolean = false;
   editFormSub: Subscription;
   addressEdit: boolean = false;
   phoneEdit: boolean = false;
   emailEdit: boolean = false;
+
   firstName = "Ben";
   lastName = "Lascurain";
   phone = "(502) 662-5800";
@@ -35,10 +24,47 @@ export class AccountComponent implements OnInit {
   city = "Louisville";
   state = "KY";
   zip = "40243";
-  orders: IEditOrder[] = [
-    { orderDate: "5/15/2018", deliveryDate: "5/30/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Complete" },
-    { orderDate: "6/1/2018", deliveryDate: "7/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer", payment: "Complete" },
-    { orderDate: "5/2/2018", deliveryDate: "11/10/2018", fullfilledDate: "pending", orderNum: "1665888", price: "$102.10", description: "Full sheet cake (serves 72)", payment: undefined },
+  orderDate: Date | string = new Date().toLocaleDateString();
+  deliveryType: string = 'delivery';
+  deliveryDate: Date | string = new Date().toLocaleDateString();
+  fullfilledDate: Date | string = 'pending';
+  orderNum: string = '1200005';
+  price: string = `$80.56`
+  description: string = "Some cake discription goes here.";
+  payment: string = 'pending';
+  tierCount: string = '2';
+  servings: string = '10" and 6" dbouble stack (serves 40-45)';
+  flavorCake: string = 'Italian Cream';
+  flavorFrosting: string = 'Raspberry Buttercream';
+  fillings: string = 'None';
+
+  constructor( private dialog: MatDialog) { }
+
+  ngOnInit(){}
+  
+  ngOnDestroy() {}
+
+  orders = [
+    {
+      address1: this.address1,
+      address2: this.address2,
+      city: this.city,
+      state: this.state,
+      zip: this.zip,
+      orderDate: this.orderDate, //submitted on
+      deliveryDate: this.deliveryDate, //requested on
+      deliveryType: this.deliveryType,
+      fullfilledDate: this.fullfilledDate,
+      orderNum: this.orderNum,
+      price: this.price,
+      description: this.description,
+      payment: this.payment,
+      tierCount: this.tierCount,
+      servings: this.servings,
+      flavorCake: this.flavorCake,
+      flavorFrosting: this.flavorFrosting,
+      fillings: this.fillings
+    }
   ]
   states: string[] = [
     'KY', 'IN', 'TN', 'OH'
@@ -59,31 +85,34 @@ export class AccountComponent implements OnInit {
     this.emailEdit = true;
   }
 
-
   openEditOrder(o: any): void {
     const dialogRef = this.dialog.open(OrderEditComponent, {
-      width: '700px',
-      height: '700px',
+      width: '60%',
+      height: '60%',
       data:
       {
-        orderDate: o.orderDate,
+        address1: o.address1,
+        address2: o.address2,
+        city: o.city,
+        state: o.state,
+        zip: o.zip,
+
         deliveryDate: o.deliveryDate,
-        fullfilledDate: o.fullfilledDate,
-        orderNum: o.orderNum,
-        price: o.price,
-        description: o.description,
-        payment: o.payment
+        deliveryType: o.deliveryType,
       }
     });
-    console.log(o.orderDate);
-    dialogRef.afterClosed().subscribe(result => {
-      o.orderDate = result.orderDate
-        // deliveryDate: o.deliveryDate,
-        // fullfilledDate: o.fullfilledDate,
-        // orderNum: o.orderNum,
-        // price: o.price,
-        // description: o.description,
-        // payment: o.payment
+
+    dialogRef.componentInstance.onCancel.subscribe( cancel => {
+      cancel ? dialogRef.close() : null;
+      return;
+    })
+
+    dialogRef.componentInstance.onSubmit.subscribe(data => {
+      console.log("data on account sub")
+      console.log(data)
+      this.deliveryDate = data.deliveryDate;
+      this.deliveryType = data.deliveryType;
+      return;
     })
   }
 

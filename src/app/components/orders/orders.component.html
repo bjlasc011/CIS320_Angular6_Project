@@ -139,10 +139,10 @@
               </tr>
             </thead>
             <tbody class="upload-name-style">
-              <tr *ngFor="let item of files; let i=index">
-                <td>{{ item.relativePath }}</td>
+              <tr *ngFor="let file of files; let i=index">
+                <td>{{ file.relativePath }}</td>
                 <td>
-                  <mat-icon (click)="deleteImg(item)">cancel</mat-icon>
+                  <mat-icon (click)="deleteImg(file)">cancel</mat-icon>
                 </td>
               </tr>
             </tbody>
@@ -156,22 +156,24 @@
 
   <mat-card>
     <mat-card-content>
-      <h3>Pay with PayPal</h3>
-      <a href="https://www.paypal.com/us/signin" target="blank">
-        <img src="E:/Iteration2/KarolinesCakes/assets/pp.png">
-      </a>
+        <h3>Pay with PayPal</h3>
+        <a href="https://www.paypal.com/us/signin" target="blank">
+          <mat-icon>credit_card</mat-icon>          
+        </a>
+
     </mat-card-content>
   </mat-card>
   <div class="address-buffer"></div>
+  <button mat-raised-button color="primary" style="float: right;">Submit</button>
 
   <!--FOOTER -->
 
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/IG.png"
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration3/KarolinesCakes/assets/IG.png"
           class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration2/KarolinesCakes/assets/FBicon.svg.png"
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="E:/Iteration3/KarolinesCakes/assets/FBicon.svg.png"
           class="SM-icon FB"></a>
       <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>

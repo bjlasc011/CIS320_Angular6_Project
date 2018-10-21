@@ -38,9 +38,6 @@ export class OrdersComponent implements OnInit {
   minDate: Date;
   tierCount: number = 1;
   tiers: String[] = ['1', '2', '3', 'Request 4+'];
-  cardTypes: string[] = ["Visa", "Mastercard", "Discover", "AMEX"];
-  years: string[] = ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
-  months: string[] = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP","OCT", "NOV", "DEC"];
   states: string[] = [
     'Kentucky', 'Indiana', 'Tennessee', 'Ohio'
   ];
