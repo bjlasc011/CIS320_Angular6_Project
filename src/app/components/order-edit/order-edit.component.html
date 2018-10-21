@@ -7,10 +7,9 @@
       <mat-radio-button color="primary" class="order-input" value="pickup" [checked]="deliveryType === 'pickup'"> Pickup </mat-radio-button>
       <mat-radio-button color="primary" class="order-input" value="undecided" [checked]="deliveryType === 'undecided'"> Undecided </mat-radio-button>
     </mat-radio-group>
-    {{deliveryType}}
   </div>
 
-  <mat-form-field class="order-input">
+  <mat-form-field class="order-input date">
     <input matInput [matDatepicker]="picker" placeholder="Pickup / Delivery Date" [min]="minDate" required [(ngModel)]="deliveryDate">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker touchUi #picker></mat-datepicker>

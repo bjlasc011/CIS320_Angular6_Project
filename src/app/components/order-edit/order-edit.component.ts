@@ -88,7 +88,10 @@ export class OrderEditComponent implements OnInit {
       flavors: [
         'Vanilla', 'Chocolate', 'Carrot', 'Strawberry', 'Banana'
       ]
-    },
+    }
+  ]
+  
+  moreTreats: Object[] = [
     {
       name: 'Cupcakes',
       flavors: [
@@ -101,7 +104,6 @@ export class OrderEditComponent implements OnInit {
         'Cookie Cake', '9" Pie', 'Cake Pops', 'Cakes with Fresh Fruit'
       ]
     }
-    
   ]
 
   frostings: String[] = [

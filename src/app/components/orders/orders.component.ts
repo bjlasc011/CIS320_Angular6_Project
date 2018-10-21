@@ -76,7 +76,10 @@ export class OrdersComponent implements OnInit {
       flavors: [
         'Vanilla', 'Chocolate', 'Carrot', 'Strawberry', 'Banana'
       ]
-    },
+    }
+  ]
+  
+  moreTreats: Object[] = [
     {
       name: 'Cupcakes',
       flavors: [
@@ -89,7 +92,6 @@ export class OrdersComponent implements OnInit {
         'Cookie Cake', '9" Pie', 'Cake Pops', 'Cakes with Fresh Fruit'
       ]
     }
-    
   ]
 
   frostings: String[] = [
@@ -101,6 +103,10 @@ export class OrdersComponent implements OnInit {
   fillings: String[] = [
     'None','Salted Caramel', 'Fruit Preserves', 'Lemon Curd','Chocolate Ganache', 'Marshmallow',  'Peanut Butter Buttercream', 
     'Lemon Cream Cheese Frosting','Coconut Cream Cheese Frosting','Strawbetty Cream Cheese Frosting', 'Nutella'
+  ]
+
+  quantity: string[] = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' 
   ]
   public deliveryChange(): void{
     if(this.deliveryType=='delivery'){
@@ -114,5 +120,12 @@ export class OrdersComponent implements OnInit {
     console.log('nav to cake-gallery');
     const link = ['/cake-gallery']
     this.router.navigate([link]);
+  }
+  rows: number[] = [0];
+  addTreatRow(): void{
+    this.rows.push(0);
+  }
+  popTreatRow(){
+    this.rows.pop();
   }
 }
