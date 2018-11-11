@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UploadEvent, UploadFile, FileComponent, FileSystemFileEntry } from 'ngx-file-drop';
+import { UploadEvent, UploadFile } from 'ngx-file-drop';
 
 @Component({
   selector: 'app-orders',
@@ -36,6 +36,7 @@ export class OrdersComponent implements OnInit {
   deliveryType: string;
   showAddress:boolean = false;
   minDate: Date;
+  treatRows: number[] = [0];
   tierCount: number = 1;
   tiers: String[] = ['1', '2', '3', 'Request 4+'];
   states: string[] = [
@@ -121,11 +122,10 @@ export class OrdersComponent implements OnInit {
     const link = ['/cake-gallery']
     this.router.navigate([link]);
   }
-  rows: number[] = [0];
   addTreatRow(): void{
-    this.rows.push(0);
+    this.treatRows.push(0);
   }
   popTreatRow(){
-    this.rows.pop();
+    this.treatRows.pop();
   }
 }

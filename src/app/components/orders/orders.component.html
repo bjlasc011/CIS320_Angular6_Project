@@ -42,10 +42,10 @@
   </mat-card>
 
   <div class="order-radio">
-    <mat-radio-group [(ngModel)]="deliveryType" (change)="deliveryChange()" required>
-      <mat-radio-button color="primary" class="order-input" value="delivery"> Delivery </mat-radio-button>
-      <mat-radio-button color="primary" class="order-input" value="pickup"> Pickup </mat-radio-button>
-      <mat-radio-button color="primary" class="order-input" value="undecided"> Undecided </mat-radio-button>
+    <mat-radio-group  [(ngModel)]="deliveryType" (change)="deliveryChange()" required>
+      <mat-radio-button name="deliveryType" color="primary" class="order-input" value="delivery"> Delivery </mat-radio-button>
+      <mat-radio-button name="deliveryType" color="primary" class="order-input" value="pickup"> Pickup </mat-radio-button>
+      <mat-radio-button name="deliveryType" color="primary" class="order-input" value="undecided"> Undecided </mat-radio-button>
     </mat-radio-group>
   </div>
 
@@ -163,7 +163,7 @@
   <mat-card class="last-card">
     <mat-card-content>
 
-      <div *ngFor="let i of rows">
+      <div *ngFor="let i of treatRows">
 
         <mat-form-field class="order-input">
           <mat-select placeholder="More Treats" required>
