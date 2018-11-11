@@ -14,28 +14,28 @@ export class CakeGalleryComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog
   ) { }
-
+  assets: string = '../../../assets'
   c: any = {
     all: "All", basic: "Basic", premium: "Premium", seasonal: "Seasonal", birthday:"Birthday", wedding: "Wedding"}
 
   ngOnInit() { }
 
   cakes: Cake[] = [
-    { url: '/assets/bacon_cupcakes.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
-    { url: `/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/big_flower.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/bunny.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/elsa.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/gift_bag.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/happy_bday.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/pink_swirls.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/Red_White_Minnie.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/shamrocks.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/1.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/2.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/3.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/4.png`, comments: '', cakeTypes: [] },
-    { url: `/assets/5.png`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/bacon_cupcakes.jpg`, comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
+    { url: `${this.assets}/bee_cupcakes.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/big_flower.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/bunny.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/elsa.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/gift_bag.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/happy_bday.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/pink_swirls.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/Red_White_Minnie.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/shamrocks.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/1.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/2.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/3.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/4.jpg`, comments: '', cakeTypes: [] },
+    { url: `${this.assets}/5.jpg`, comments: '', cakeTypes: [] },
   ];
 
   cakeTypes: string[] = [
@@ -52,8 +52,8 @@ export class CakeGalleryComponent implements OnInit {
   openNewDialog(cakeUrl) {
     this.openDialog = this.dialog.open(
       ImgDialogComponent, {
-        width: '650px',
-        height: '650px',
+        width: '70%',
+        height: '80%',
         data: { imgUrl: cakeUrl }
       });
   }
