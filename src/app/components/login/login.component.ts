@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material'
 
 @Component({
   selector: 'app-login',
@@ -10,20 +9,22 @@ import {MatDialog} from '@angular/material'
 export class LoginComponent implements OnInit {
 
   constructor(
-    private router: Router,
+    private router: Router
   ) { }
   password: String;
   username: String;
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
+  onLogin = new EventEmitter();
   login() : void {
     if(this.username == 'admin' && this.password == 'admin'){
      this.router.navigate(["account"]);
+     this.onLogin.emit({success: true})
     }
     else {
       alert("Invalid credentials");
+      this.username = "";
+      this.password = "";
     }
   }
 

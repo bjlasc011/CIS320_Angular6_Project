@@ -1,0 +1,49 @@
+.container{
+  padding: 25px;
+  position: absolute;
+  top: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 750px;
+  max-width: 60%;
+  min-width: 60%;
+  left: 20%;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+  background: rgba(160, 151, 150, 0.025);
+}
+a {
+  float: left;   
+  padding: 10px;
+  text-decoration: none;
+  color: rgb(37, 0, 170);
+  font-size: 1.5rem;
+}
+.FB{
+  border: 2px rgba(255, 255, 255, 0.459) solid;
+  border-radius: 10px;
+}
+.SM-icon{
+  display: block;
+  float: left;
+  width:40px;
+}
+.phone-email {
+  clear:both;
+}
+.about{
+  font-size: 1.5rem;
+  clear: both;
+  border: 2px solid rgba(88, 99, 255, 0.363);
+  border-radius: 8px;
+  padding: 40px;
+  background: lightblue;
+}
+.allergy{
+  font-size: 1.2rem;
+  clear: both;
+  border: 2px solid rgba(88, 99, 255, 0.363);
+  border-radius: 8px;
+  padding: 40px;
+  background: lightblue;
+}

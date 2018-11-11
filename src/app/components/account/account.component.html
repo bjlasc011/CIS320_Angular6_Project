@@ -39,9 +39,7 @@
               <td>{{order.description.substring(0,10)}}...</td>
               <td *ngIf="order.payment">{{order.payment}}</td>
               <td *ngIf="!order.payment">
-                <button mat-flat-button color="primary">
-                  <mat-icon>add_box</mat-icon>Payment
-                </button>
+                  <mat-icon color="primary">add_box</mat-icon>
               </td>
             </tr>
           </table>
@@ -56,34 +54,23 @@
       <mat-icon class="card-icon">credit_card</mat-icon>Payment Methods
     </h2>
   </div>
-  <mat-card class="payment-card">
-    <mat-card-content>
 
+  <mat-card class="payment-card" *ngFor="let card of cards">
+    <mat-card-content>
       <div class="card-info">
         <div class="card-details">
-          <mat-icon class="icon">edit</mat-icon> {{cardType}}
+          <mat-icon class="icon">edit</mat-icon> {{card.cardType}}
         </div>
-        <div class="card-details2">****{{ cardNumber?.substring( (cardNumber.length - 4) ) }}</div>
-        <div class="card-details2">{{expDate}}</div>
+        <div class="card-details2">****{{ card.cardNumber?.substring( (card.cardNumber.length - 4) ) }}</div>
+        <div class="card-details2">{{card.expDate}}</div>
       </div>
     </mat-card-content>
   </mat-card>
   <div class="sm-vert-spacer"></div>
-  <mat-card class="payment-card">
-    <mat-card-content>
-
-      <div class="card-info">
-        <div class="card-details">
-          <mat-icon class="icon">edit</mat-icon> {{cardType1}}
-        </div>
-        <div class="card-details2">****{{ cardNumber1?.substring( (cardNumber.length - 4) ) }}</div>
-        <div class="card-details2">{{expDate1}}</div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  
   <div class="sm-vert-spacer"></div>
-  <button mat-flat-button color="primary">
-    <mat-icon>add_box</mat-icon>Add Payment Method
+  <button mat-flat-button color="primary" (click)="addPaymentMethod()">
+    <mat-icon id="bttn-icon">add_box</mat-icon>Add Payment Method
   </button>
   <div class="footer-container">
 
