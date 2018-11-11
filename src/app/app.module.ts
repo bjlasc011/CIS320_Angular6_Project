@@ -31,7 +31,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AccountComponent } from './components/account/account.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { AddPaymentMethodComponent } from './components/add-payment-method/add-payment-method.component';
+import { OrderEditComponent } from './components/order-edit/order-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ import { AddPaymentMethodComponent } from './components/add-payment-method/add-p
     AccountComponent,
     ProductsComponent,
     ContactComponent,
-    AddPaymentMethodComponent
+    OrderEditComponent
   ],
   imports: [
     BrowserModule,
@@ -80,8 +80,8 @@ import { AddPaymentMethodComponent } from './components/add-payment-method/add-p
   bootstrap: [AppComponent],
   entryComponents: [
     ImgDialogComponent,
-    AddPaymentMethodComponent,
-    LoginComponent
+    LoginComponent,
+    OrderEditComponent
   ]
 })
 export class AppModule { }

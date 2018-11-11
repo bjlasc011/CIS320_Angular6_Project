@@ -1,46 +1,57 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UploadEvent, UploadFile } from 'ngx-file-drop';
+import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css']
+  selector: 'app-order-edit',
+  templateUrl: './order-edit.component.html',
+  styleUrls: ['./order-edit.component.css']
 })
-export class OrdersComponent implements OnInit {
+export class OrderEditComponent implements OnInit {
+  onSubmit = new EventEmitter;
+  onCancel = new EventEmitter;
+  minDate: Date;
+  showAddress: boolean = false;
+  deliveryType: string;
+  deliveryDate: Date | string;
 
   constructor(
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-    this.minDate = new Date();
-    this.deliveryType = 'undecided';
-  }
-  public files: UploadFile[] = [];
- 
-  public dropped(event: UploadEvent) {
-    event.files.forEach((f) => {
-    this.files.push(f);
-    })
+    public dialogRef: MatDialogRef<OrderEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: IEditOrder,
+  )
+  {
+    this.minDate = new Date;
+    this.deliveryDate = this.data.deliveryDate;
+    this.deliveryType = this.data.deliveryType;
+    console.log(this.deliveryDate);
+    console.log(this.deliveryType);
   }
 
-  public deleteImg(uploadFile: UploadFile){
-    this.files = this.files.filter((f)=>{
-      return f.fileEntry.name !== uploadFile.fileEntry.name;
-    })
+  ngOnInit(){}
+
+  submit() {
+    this.data.deliveryType = this.deliveryType;
+    this.data.deliveryDate = this.deliveryDate;
+    console.log(this.data);
+    this.onSubmit.emit({data: this.data})
+    this.dialogRef.close();
   }
-  newsletter: boolean = true;
-  glutenFree: boolean = false;
-  picker: Date;
-  deliveryType: string;
-  showAddress:boolean = false;
-  minDate: Date;
-  treatRows: number[] = [0];
-  tierCount: number = 1;
+
+  cancel(){
+    this.onCancel.emit({cancel: true})
+  }
+
+  public deliveryChange(): void{
+    if(this.data.deliveryType=='delivery'){
+      this.showAddress = true;
+    }
+    else {
+      this.showAddress = false;
+    }
+  }
+
   tiers: String[] = ['1', '2', '3', 'Request 4+'];
   states: string[] = [
-    'Kentucky', 'Indiana', 'Tennessee', 'Ohio'
+    'KY', 'IN', 'TN', 'OH'
   ];
   servings: string[] = [
     '6" cake (serves 12)',
@@ -105,27 +116,15 @@ export class OrdersComponent implements OnInit {
     'None','Salted Caramel', 'Fruit Preserves', 'Lemon Curd','Chocolate Ganache', 'Marshmallow',  'Peanut Butter Buttercream', 
     'Lemon Cream Cheese Frosting','Coconut Cream Cheese Frosting','Strawbetty Cream Cheese Frosting', 'Nutella'
   ]
+}
 
-  quantity: string[] = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' 
-  ]
-  public deliveryChange(): void{
-    if(this.deliveryType=='delivery'){
-      this.showAddress = true;
-    }
-    else {
-      this.showAddress = false;
-    }
-  }
-  navCakeGallery(): void{
-    console.log('nav to cake-gallery');
-    const link = ['/cake-gallery']
-    this.router.navigate([link]);
-  }
-  addTreatRow(): void{
-    this.treatRows.push(0);
-  }
-  popTreatRow(){
-    this.treatRows.pop();
-  }
+export interface IEditOrder {
+  cancel: boolean,
+  address1: string,
+  address2: string,
+  city: string,
+  state: string,
+  zip: string,
+  deliveryDate: any, //requested on
+  deliveryType: string;
 }

@@ -32,8 +32,6 @@ td {
   text-align: center; 
   vertical-align: middle;
 }
-.grid-hover{
-}
 .grid-hover:hover {
   background: #3f51b5;
   font-size: 1.03rem;

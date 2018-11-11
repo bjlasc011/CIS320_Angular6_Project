@@ -1,5 +1,7 @@
 <div class="main-container">
-  <h1 class="form-header">Sign Up for an Account</h1>
+  <div>
+    <h1 class="form-header">Sign Up for an Account</h1>
+  </div>
   <mat-card>
     <mat-card-content>
 
@@ -60,39 +62,6 @@
     </mat-card-content>
   </mat-card>
   <div class="card-spacer"></div>
-  <h3 class="payment-header">
-    <mat-icon class="card-icon">credit_card</mat-icon>Payment Methods
-  </h3>
-  <mat-card>
-    <mat-card-content>
-      <div class="credit-card">
-        <mat-form-field class="order-input">
-          <input matInput placeholder="Name on Card">
-          <mat-label>Name on Card</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Card Type">
-            <mat-option *ngFor="let cardType of cardTypes" [value]="cardType">{{cardType}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="order-input">
-          <input matInput minlength="16" maxlength="16" placeholder="**** **** **** 1234">
-          <mat-label>Card Number</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Exp Month">
-            <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Exp Year">
-            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <div class="card-spacer"></div>
   <mat-card>
     <mat-card-content>
       <mat-form-field class="order-input">
@@ -113,17 +82,16 @@
 
     </mat-card-content>
   </mat-card>
-  <!-- <div class="card-spacer"></div> -->
-
-
 
   <!--FOOTER -->
 
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/IG.png" class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png" class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="D:/Iteration3/KarolinesCakes/assets/IG.png"
+          class="SM-icon FB"></a>
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="D:/Iteration3/KarolinesCakes/assets/FBicon.svg.png"
+          class="SM-icon FB"></a>
       <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
     </div>
