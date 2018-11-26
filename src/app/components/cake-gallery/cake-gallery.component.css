@@ -4,14 +4,18 @@ h1, h2, h3, h4{
 label {
   padding: 10px;
 }
+.landing-photo{
+  width: 100%;
+}
 .main-container {
-  padding: 80px;
+  padding: 80px 80px 0px 80px;
   top: 65px;
-  min-height: 80vh;
+  min-height: 74vh;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
 }
 .gallery-header{
+  float: left;
   padding: 20px 10px 10px 20px;
 }
 .cake-img{
@@ -20,10 +24,24 @@ label {
   padding: 12px;
   object-fit: cover;
 }
+.col-small{
+  width: 20vw;
+}
+.col-large{
+  width: 80vw;
+}
 .cake-filter{
-  position: absolute;
-  top: 110px;
-  right: 160px;
+  float: left;
+  /* position: absolute; */
+  /* top: 110px;
+  right: 160px; */
+}
+.spacer{
+  width: 100%;
+}
+.sub-header{
+  width: 100vw;
+  display: block;
 }
 ::ng-deep mat-icon {
   cursor: pointer;
