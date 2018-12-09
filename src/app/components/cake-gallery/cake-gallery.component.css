@@ -6,10 +6,12 @@ label {
 }
 .landing-photo{
   width: 100%;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+  background: rgba(160, 151, 150, 0.025);
 }
 .main-container {
   padding: 80px 80px 0px 80px;
-  top: 65px;
+  top: 50px;
   min-height: 74vh;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);

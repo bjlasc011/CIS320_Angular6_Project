@@ -204,6 +204,10 @@ a {
   float: left;
   width:40px;
 }
+.sm-vert-spacer{
+  height: 30px;
+  width: 100%;
+}
 .sign-up-button{
   margin-left: 20px;
   margin-bottom: 0px;

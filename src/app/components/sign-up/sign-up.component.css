@@ -49,16 +49,20 @@ label {
   padding: 20px 20px 10px 0px;
 }
 .large-input {
-  width: 47%;
-  padding: 5px calc((100% - 47%*2)/4);
+  width: calc(50% - 20px);
+  padding: 5px 10px 5px 10px;
 }
 .small-input {
-  width: 30%;
-  padding: 5px calc((100% - 30%*3)/6);
+  width: calc(33.33% - 20px);
+  padding: 5px 10px 5px 10px;
+}
+.xsmall-input{
+  width: 60px;
+  padding: 5px 10px;
 }
 .xlarge-input{
-  width: 100%;
-  padding: 5px calc(100% - 100%);
+  width: calc(100% - 20px);
+  padding: 5px 10px 5px 10px;
 }
 ::ng-deep .comments {
   min-height: 80px;
