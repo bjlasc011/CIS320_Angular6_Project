@@ -23,21 +23,7 @@ export class CakeGalleryComponent implements OnInit {
 
 //   src="D:/Iteration5/KarolinesCakes/assets/1.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/.png1')" alt="oops">
 urlStr = "D:/Iteration5/KarolinesCakes/assets/2.png";
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/3.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/3.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/4.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/4.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/5.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/5.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/6.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/6.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/7.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/7.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/8.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/8.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/9.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/9.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/10.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/10.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/11.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/11.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/12.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/12.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/13.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/13.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/14.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/14.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/15.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/15.png')" alt="oops">
-// <img class="cake-img" src="D:/Iteration5/KarolinesCakes/assets/16.png"
-  cakes: Cake[] = [
+cakes: Cake[] = [
     { url: 'D:/Iteration5/KarolinesCakes/assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/big_flower.png`, comments: '', cakeTypes: [] },

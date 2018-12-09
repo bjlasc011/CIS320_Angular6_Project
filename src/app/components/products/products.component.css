@@ -10,9 +10,9 @@
   position: absolute;
   top: 80px;
   min-height: 100vh;
-  max-width: 70%;
-  min-width: 70%;
-  left: 15%;
+  max-width: calc(80% - 50px);
+  min-width: calc(80% - 50px);
+  left: 10%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
 }
@@ -40,17 +40,12 @@ td {
   vertical-align: middle;
 }
 .grid-hover:hover {
-  /* background: #3f51b5f3; */
-  /* font-size: 1.3rem; */
   font-weight: 800;
   color: #3f51b5;;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-  /* transition: color 0.7s linear 0.2s; */
   transition: background 0.05s linear 0s;
   cursor: pointer;
-  /* transition: font-size 0.2s linear 0s; */
 }
-.grid-list {
-  position: absolute;
-  left: 5px;
+::ng-deep .primary{
+  color: #3f51b5;  
 }

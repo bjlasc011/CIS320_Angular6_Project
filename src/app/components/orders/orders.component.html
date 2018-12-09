@@ -41,16 +41,17 @@
     </mat-card-content>
   </mat-card>
 
-  <div class="order-radio">
-    <mat-radio-group [(ngModel)]="deliveryType" (change)="deliveryChange()" required>
-      <mat-radio-button name="deliveryType" color="primary" class="order-input" value="delivery"> Delivery </mat-radio-button>
-      <mat-radio-button name="deliveryType" color="primary" class="order-input" value="pickup"> Pickup </mat-radio-button>
-      <mat-radio-button name="deliveryType" color="primary" class="order-input" value="undecided"> Undecided </mat-radio-button>
-    </mat-radio-group>
-  </div>
+  <div class="address-buffer"></div>
 
   <mat-card>
     <mat-card-content>
+      <div class="order-radio">
+        <mat-radio-group [(ngModel)]="deliveryType" (change)="deliveryChange()" required>
+          <mat-radio-button name="deliveryType" color="primary" class="order-input" value="delivery"> Delivery </mat-radio-button>
+          <mat-radio-button name="deliveryType" color="primary" class="order-input" value="pickup"> Pickup </mat-radio-button>
+          <mat-radio-button name="deliveryType" color="primary" class="order-input" value="undecided"> Undecided </mat-radio-button>
+        </mat-radio-group>
+      </div>
       <h2 [className]="showAddress ? 'norm' : 'greyed'">Address</h2>
       <form>
         <mat-form-field class="large-input">
@@ -204,14 +205,14 @@
       <div class="address-buffer"></div>
     </mat-card-content>
   </mat-card>
-<div class="sm-vert-spacer"></div>
-<button mat-raised-button color="primary" style="float: left;" (click)="pushAccount()">Submit</button>
-<div class="sm-vert-spacer"></div>
-
+  <div class="buffer"></div>
+  <button mat-raised-button color="primary" style="float: left;" (click)="pushAccount()">Submit</button>
+  <div class="buffer"></div>
 
   <!--FOOTER -->
+  <app-footer></app-footer>
 
-  <div class="footer-container">
+  <!-- <div class="footer-container">
 
     <div class="contact-info">
       <a href="https://www.instagram.com/explore/locations/698250740234496/sweet-karolines-cakes/" target="blank"><img src="D:/Iteration5/KarolinesCakes/assets/ig.png"
@@ -231,5 +232,5 @@
         </mat-form-field>
         <button mat-flat-button class="sign-up-button" color="accent">Sign up</button>
       </section>
-    </div>
+    </div> -->
   </div>

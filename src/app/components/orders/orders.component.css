@@ -9,19 +9,17 @@ label {
 ::ng-deep .last-card {
   padding-bottom: 25px;
 }
-::ng-deep mat-card{
-  width: 100%;
+.mat-card[_ngcontent-c6] {
+  width: inherit !important;
 }
 .main-container {
   padding: 25px;
   position: absolute;
   top: 80px;
   min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 60%;
-  min-width: 60%;
-  left: 20%;
+  max-width: calc(80% - 50px);
+  min-width: calc(80% - 50px);
+  left: 10%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
 }
@@ -31,7 +29,7 @@ label {
 
 .order-radio {
   float: left;
-  padding: 20px 20px 10px 0px;
+  padding: 10px 20px 10px 0px;
 }
 .card-icon {
   padding-top:20px;
@@ -118,6 +116,10 @@ a {
 }
 .address-buffer{
   height: 30px;
+  padding: 10px;
+}
+.buffer{
+  padding: 20px;
 }
 .paypal{
   height: 25px;
@@ -203,10 +205,6 @@ a {
   display: block;
   float: left;
   width:40px;
-}
-.sm-vert-spacer{
-  height: 30px;
-  width: 100%;
 }
 .sign-up-button{
   margin-left: 20px;

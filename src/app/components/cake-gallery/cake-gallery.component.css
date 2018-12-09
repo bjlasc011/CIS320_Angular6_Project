@@ -13,13 +13,14 @@ label {
   padding: 80px 80px 0px 80px;
   top: 50px;
   min-height: 74vh;
-  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);  
   background: rgba(160, 151, 150, 0.025);
 }
 .gallery-header{
   float: left;
   padding: 20px 10px 10px 20px;
 }
+
 .cake-img{
   width: 200px;
   height: 200px;
@@ -35,9 +36,6 @@ label {
 }
 .cake-filter{
   float: left;
-  /* position: absolute; */
-  /* top: 110px;
-  right: 160px; */
 }
 .spacer{
   width: 100%;

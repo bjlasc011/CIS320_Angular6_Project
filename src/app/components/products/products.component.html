@@ -4,8 +4,9 @@
     <mat-icon>shopping_cart</mat-icon>Create Order
   </button>
   <mat-list *ngFor="let categoryWP of categoriesWithPrices; let i=index;">
-    <h3 (click)="expand(i)" subheader>{{categoryWP.name}}
-      <mat-icon matListIcon>expand_more</mat-icon>
+    <h3 (click)="expand(i)" class="primary" subheader>{{categoryWP.name}}
+      <mat-icon matListIcon *ngIf="!shows[i]">expand_more</mat-icon>
+      <mat-icon matListIcon *ngIf="shows[i]">expand_less</mat-icon>
       <span [hidden]="!shows[i]">
         <button mat-icon-button (click)="pushOrders()">
           <mat-icon>shopping_cart</mat-icon>
