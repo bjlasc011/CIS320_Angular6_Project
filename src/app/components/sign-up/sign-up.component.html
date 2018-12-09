@@ -2,95 +2,105 @@
   <div>
     <h1 class="form-header">Sign Up for an Account</h1>
   </div>
-  <mat-card>
+
+
+  <mat-card class="side-by-side">
     <mat-card-content>
-
       <div class="order-form">
-        <mat-form-field class="order-input name-input">
+        <mat-form-field class="large-input">
           <mat-label>First Name</mat-label>
-          <input matInput placeholder="First" [(ngModel)]="firstName" required>
+          <input matInput placeholder="First" [(ngModel)]="firstName" required maxlength="50">
         </mat-form-field>
 
-        <mat-form-field class="order-input name-input">
+        <mat-form-field class="large-input" >
           <mat-label>Last Name</mat-label>
-          <input matInput placeholder="Last" required>
+          <input matInput placeholder="Last" [(ngModel)]="lastName" required maxlength="50">
         </mat-form-field>
 
-        <mat-form-field class="order-input">
+        <mat-form-field class="large-input">
           <mat-label>Phone</mat-label>
-          <input matInput placeholder="(502)123-4567" type="tel">
+          <input matInput placeholder="(502)123-4567" type="tel" (keydown)="onKey($event)" [(ngModel)]="phone" maxlength="10">
         </mat-form-field>
 
-        <mat-form-field class="order-input">
-          <input matInput placeholder="your@email.com" type="email" required>
+        <mat-form-field class="large-input">
+          <input matInput placeholder="your@email.com" type="email" [(ngModel)]="email" required maxlength="50">
           <mat-label>E-mail</mat-label>
         </mat-form-field>
-        <mat-checkbox color="primary" [(ngModel)]="newsletter">
+        <mat-checkbox color="primary" [(ngModel)]="newsletter" class="small-input">
           sign up for newsletter
         </mat-checkbox>
       </div>
+    </mat-card-content>
+  </mat-card>
 
-
-      <div class="address-buffer"></div>
-      <h4 class="sub-header">Address information isn't required, but will make delivery orders more convenient </h4>
+  <mat-card class="side-by-side">
+    <mat-card-content>
+      <h4 class="sub-header"><em> information isn't required, but will make delivery orders more convenient </em></h4>
 
       <mat-form-field class="large-input">
         <input matInput placeholder="Address">
         <mat-label>Address Line 1</mat-label>
       </mat-form-field>
+
       <mat-form-field class="large-input">
         <input matInput placeholder="Apartment">
         <mat-label>Address Line 2</mat-label>
       </mat-form-field>
 
       <div class="city-state-zip">
-        <mat-form-field class="order-input">
+        <mat-form-field class="small-input">
           <input matInput placeholder="City">
           <mat-label>City</mat-label>
         </mat-form-field>
-        <mat-form-field>
+
+        <mat-form-field class="small-input">
           <mat-select placeholder="State">
             <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="order-input">
+
+        <mat-form-field class="small-input">
           <input matInput placeholder="zip-code">
           <mat-label>Zip</mat-label>
         </mat-form-field>
       </div>
-
     </mat-card-content>
   </mat-card>
+
+
   <div class="card-spacer"></div>
+
+
   <mat-card>
     <mat-card-content>
-      <mat-form-field class="order-input">
-        <input matInput placeholder="Username" required>
-        <mat-label>Username</mat-label>
+
+      <mat-form-field class="xlarge-input">
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"  required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
-      <mat-form-field class="order-input">
-        <input matInput type="password" placeholder="password" required>
-        <mat-label>Password</mat-label>
+
+      <mat-form-field class="xlarge-input">
+        <input matInput placeholder="Verify your Password" [type]="hide ? 'password' : 'text'"  required>
       </mat-form-field>
-      <mat-form-field class="order-input">
-        <input matInput type="password" placeholder="input password again" required>
-        <mat-label>Verify Password</mat-label>
-      </mat-form-field>
+
+      <div class="card-spacer"></div>
+
       <div>
         <button mat-flat-button color="primary">Submit</button>
       </div>
-
     </mat-card-content>
   </mat-card>
+
+
 
   <!--FOOTER -->
 
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/IG.png"
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="D:/Iteration5/KarolinesCakes/assets/ig.png"
           class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png"
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="D:/Iteration5/KarolinesCakes/assets/fb.png"
           class="SM-icon FB"></a>
       <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>

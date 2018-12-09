@@ -1,38 +1,28 @@
 <div class="container">
   <h1>Products and Pricing</h1>
-  <div>
-    <mat-card class="category-card" *ngFor="let categoryWP of categoriesWithPrices">
-      <mat-card-content>
-        <h3>{{categoryWP.name}}</h3>
-        <mat-grid-list cols="4" rowHeight="3:1">
-          <mat-grid-tile class="grid-hover" *ngFor="let flavor of categoryWP.flavors">
-            <table>
-              <tr>
-                <td>
-                  {{flavor.description}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {{flavor.price}}
-                </td>
-              </tr>
-            </table>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="category-card" *ngFor="let category of categories">
-      <mat-card-content>
-        <h3>{{category.name}}</h3>
-        <mat-grid-list cols="4" rowHeight="6:1">
-          <mat-grid-tile class="grid-hover" *ngFor="let flavor of category.flavors">
-            {{flavor}}
-          </mat-grid-tile>
-        </mat-grid-list>
-      </mat-card-content>
-    </mat-card>
-    <div class="spacer"></div>
-  </div>
+  <button mat-raised-button (click)="pushOrders()">
+    <mat-icon>shopping_cart</mat-icon>Create Order
+  </button>
+  <mat-list *ngFor="let categoryWP of categoriesWithPrices; let i=index;">
+    <h3 (click)="expand(i)" subheader>{{categoryWP.name}}
+      <mat-icon matListIcon>expand_more</mat-icon>
+      <span [hidden]="!shows[i]">
+        <button mat-icon-button (click)="pushOrders()">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </span>
+    </h3>
+
+    <div role="listitem" *ngFor="let flavor of categoryWP.flavors; let j=index" [hidden]="!shows[i]">
+      <mat-list-item (click)="toggleChecked(i,j)" class="grid-hover">
+        <h4 matLine>{{flavor.description}}</h4>
+        <span matLine>{{flavor.price}}</span>
+        <mat-checkbox color="accent" (click)="toggleChecked(i,j)" [(ngModel)]="flavor.checked">
+        </mat-checkbox>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+
+  </mat-list>
   <app-footer></app-footer>
 </div>

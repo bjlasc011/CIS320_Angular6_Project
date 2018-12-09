@@ -6,6 +6,7 @@ import { MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatTableModule
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -32,6 +33,7 @@ import { AccountComponent } from './components/account/account.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { OrderEditComponent } from './components/order-edit/order-edit.component';
+import { OrderService } from './components/services/order.service';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { OrderEditComponent } from './components/order-edit/order-edit.component
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatNativeDateModule,
     MatSelectModule,
     MatSidenavModule,
@@ -75,7 +78,8 @@ import { OrderEditComponent } from './components/order-edit/order-edit.component
     MatProgressSpinnerModule
   ],
   providers: [
-    MatNativeDateModule
+    MatNativeDateModule,
+    OrderService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

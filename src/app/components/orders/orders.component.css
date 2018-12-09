@@ -1,6 +1,7 @@
 h1, h2, h3, h4 {
   display: block;
   clear: both;
+  color: #000000d7;
 }
 label {
   padding: 10px;
@@ -27,13 +28,7 @@ label {
 .order-form > label {
   padding: 20px 10px 25px 5px;
 }
-.order-input {
-  padding: 0px 20px 5px 20px ;
-}
-.sm-input{
-  padding: 0px 20px 5px 20px ;
-  width: 100px;
-}
+
 .order-radio {
   float: left;
   padding: 20px 20px 10px 0px;
@@ -43,8 +38,7 @@ label {
   padding-right: 20px;
 }
 ::ng-deep .large-input {
-  max-width: 300px;
-  min-width: 300px;
+  flex: 0 0 50%;
   padding: 4px 20px 5px 20px ;
 }
 ::ng-deep .comments {
@@ -97,22 +91,6 @@ label {
 ::ng-deep .label-container {
   height: 80px;
 }
-::ng-deep .tier-input {
-  width: 110px;
-}
-::ng-deep .servings-input {
-  width: 300px;
-}
-::ng-deep .budget-input {
-  padding: 4px 20px 5px 2px ;
-  width: 100px;
-}
-::ng-deep .name-input {
-  width: 300px;
-}
-::ng-deep .cake-flavors {
-  width: 300px;
-}
 ::ng-deep .mat-form-field-wrapper {
   padding: 0px
 }
@@ -140,6 +118,40 @@ a {
 }
 .address-buffer{
   height: 30px;
+}
+.paypal{
+  height: 25px;
+  border: 2px rgba(255, 255, 255, 0.459) solid;
+  border-radius: 10px;
+}
+.large-input {
+  width: calc(50% - 20px);
+  padding: 5px 10px 5px 10px;
+}
+.small-input {
+  width: calc(33.33% - 20px);
+  padding: 5px 10px 5px 10px;
+}
+.xsmall-input{
+  width: 60px;
+  padding: 5px 10px;
+}
+.xlarge-input{
+  width: calc(100% - 20px);
+  padding: 5px 10px 5px 10px;
+}
+.greyed{
+  color: #0000005a;
+}
+.norm{
+  /*needed*/
+}
+.treat-bttn{
+  width: 10px;
+  margin: 20px;
+}
+.align-right{
+  text-align: right;  
 }
 /***************************************** FOOTER ************************/
 

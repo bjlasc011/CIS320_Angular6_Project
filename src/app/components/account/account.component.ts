@@ -28,7 +28,7 @@ export class AccountComponent implements OnInit {
   deliveryType: string = 'delivery';
   deliveryDate: Date | string = new Date().toLocaleDateString();
   fullfilledDate: Date | string = 'pending';
-  orderNum: string = '1200005';
+  orderNum: string = '12005';
   price: string = `$80.56`
   description: string = "Some cake discription goes here.";
   payment: string = 'pending';
@@ -53,6 +53,46 @@ export class AccountComponent implements OnInit {
       zip: this.zip,
       orderDate: this.orderDate, //submitted on
       deliveryDate: this.deliveryDate, //requested on
+      deliveryType: this.deliveryType,
+      fullfilledDate: this.fullfilledDate,
+      orderNum: '23456',
+      price: this.price,
+      description: this.description,
+      payment: this.payment,
+      tierCount: this.tierCount,
+      servings: this.servings,
+      flavorCake: this.flavorCake,
+      flavorFrosting: this.flavorFrosting,
+      fillings: this.fillings
+    },
+    {
+      address1: this.address1,
+      address2: this.address2,
+      city: this.city,
+      state: this.state,
+      zip: this.zip,
+      orderDate: this.orderDate, //submitted on
+      deliveryDate: this.deliveryDate, //requested on
+      deliveryType: this.deliveryType,
+      fullfilledDate: new Date().toLocaleDateString(),
+      orderNum: '02616',
+      price: '$120.22',
+      description: 'Birthday cake for',
+      payment: 'paid',
+      tierCount: this.tierCount,
+      servings: '10" and 6" dbouble stack (serves 40-45)',
+      flavorCake: this.flavorCake,
+      flavorFrosting: this.flavorFrosting,
+      fillings: this.fillings
+    },
+    {
+      address1: this.address1,
+      address2: this.address2,
+      city: this.city,
+      state: this.state,
+      zip: this.zip,
+      orderDate: new Date().toLocaleDateString(), //submitted on
+      deliveryDate: new Date('December 17, 2018 03:24:00').toLocaleDateString() , //requested on
       deliveryType: this.deliveryType,
       fullfilledDate: this.fullfilledDate,
       orderNum: this.orderNum,
@@ -87,8 +127,8 @@ export class AccountComponent implements OnInit {
 
   openEditOrder(o: any): void {
     const dialogRef = this.dialog.open(OrderEditComponent, {
-      width: '60%',
-      height: '60%',
+      width: '700px',
+      height: '80%',
       data:
       {
         address1: o.address1,

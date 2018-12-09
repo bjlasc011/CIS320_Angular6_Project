@@ -16,6 +16,14 @@ label {
   padding-top:20px;
   padding-right: 20px;
 }
+.side-by-side{
+  padding: 15px;
+  margin: 5px;
+}
+.grid{
+  width: 100%;
+  min-width: 500px;
+}
 .main-container {
   padding: 25px;
   position: absolute;
@@ -30,10 +38,6 @@ label {
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
 }
-.sm-input{
-  padding: 0px 20px 5px 20px ;
-  width: 130px;
-}
 .order-form > label {
   padding: 20px 10px 25px 5px;
 }
@@ -44,10 +48,17 @@ label {
   float: left;
   padding: 20px 20px 10px 0px;
 }
-::ng-deep .large-input {
-  max-width: 300px;
-  min-width: 300px;
-  padding: 4px 20px 5px 20px ;
+.large-input {
+  width: 47%;
+  padding: 5px calc((100% - 47%*2)/4);
+}
+.small-input {
+  width: 30%;
+  padding: 5px calc((100% - 30%*3)/6);
+}
+.xlarge-input{
+  width: 100%;
+  padding: 5px calc(100% - 100%);
 }
 ::ng-deep .comments {
   min-height: 80px;
@@ -206,6 +217,7 @@ a {
 }
 .order-input{
   padding-right: 20px;
+  width: 90%;
 }
 .input-email{
   background: #5770fdd5;

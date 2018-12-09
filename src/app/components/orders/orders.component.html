@@ -4,27 +4,27 @@
     <mat-card-content>
 
       <div class="order-form">
-        <mat-form-field class="order-input name-input">
+        <mat-form-field class="large-input">
           <mat-label>First Name</mat-label>
           <input matInput placeholder="First" required>
         </mat-form-field>
 
-        <mat-form-field class="order-input name-input">
+        <mat-form-field class="large-input">
           <mat-label>Last Name</mat-label>
           <input matInput placeholder="Last" required>
         </mat-form-field>
 
-        <mat-form-field class="order-input">
+        <mat-form-field class="small-input">
           <mat-label>Phone</mat-label>
           <input matInput placeholder="(502)123-4567" type="tel" required>
         </mat-form-field>
 
-        <mat-form-field class="order-input">
+        <mat-form-field class="small-input">
           <input matInput placeholder="your@email.com" type="email" required>
           <mat-label>E-mail</mat-label>
         </mat-form-field>
 
-        <mat-form-field class="order-input">
+        <mat-form-field class="small-input">
           <input matInput [matDatepicker]="picker" placeholder="Choose a date" [min]="minDate" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker touchUi #picker></mat-datepicker>
@@ -42,67 +42,67 @@
   </mat-card>
 
   <div class="order-radio">
-    <mat-radio-group  [(ngModel)]="deliveryType" (change)="deliveryChange()" required>
+    <mat-radio-group [(ngModel)]="deliveryType" (change)="deliveryChange()" required>
       <mat-radio-button name="deliveryType" color="primary" class="order-input" value="delivery"> Delivery </mat-radio-button>
       <mat-radio-button name="deliveryType" color="primary" class="order-input" value="pickup"> Pickup </mat-radio-button>
       <mat-radio-button name="deliveryType" color="primary" class="order-input" value="undecided"> Undecided </mat-radio-button>
     </mat-radio-group>
   </div>
 
-  <!-- <div > -->
-  <mat-card *ngIf="showAddress">
+  <mat-card>
     <mat-card-content>
-      <mat-form-field class="large-input">
-        <input matInput placeholder="Address" [disabled]="!showAddress" required>
-        <mat-label>Address Line 1</mat-label>
-      </mat-form-field>
-      <mat-form-field class="large-input">
-        <input matInput placeholder="Apartment" [disabled]="!showAddress">
-        <mat-label>Address Line 2</mat-label>
-      </mat-form-field>
-      <div class="city-state-zip">
-        <mat-form-field class="order-input">
-          <input matInput placeholder="City" [disabled]="!showAddress" required>
+      <h2 [className]="showAddress ? 'norm' : 'greyed'">Address</h2>
+      <form>
+        <mat-form-field class="large-input">
+          <input matInput placeholder="Address" [disabled]="!showAddress" required>
+          <mat-label>Address Line 1</mat-label>
+        </mat-form-field>
+        <mat-form-field class="large-input">
+          <input matInput placeholder="Apartment" [disabled]="!showAddress">
+          <mat-label>Address Line 2</mat-label>
+        </mat-form-field>
+        <mat-form-field class="small-input">
+          <input matInput placeholder="Louisville" [disabled]="!showAddress" required>
           <mat-label>City</mat-label>
         </mat-form-field>
-        <mat-form-field>
-          <mat-select placeholder="State" [disabled]="!showAddress" required>
+        <mat-form-field class="small-input">
+          <mat-select placeholder="KY" [disabled]="!showAddress" required>
             <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="order-input">
+        <mat-form-field class="small-input">
           <input matInput placeholder="zip-code" [disabled]="!showAddress" required>
           <mat-label>Zip</mat-label>
         </mat-form-field>
-      </div>
+      </form>
+
     </mat-card-content>
   </mat-card>
   <div class="address-buffer"></div>
-  <!-- </div> -->
 
 
   <mat-card class="last-card">
     <mat-card-content>
+      <h2>Customize Your Dessert</h2>
 
-      <mat-form-field class="order-input servings-input">
+      <mat-form-field class="small-input">
         <mat-select placeholder="Serving Size" required>
           <mat-option *ngFor="let serv of servings" [value]="servings">{{serv}}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="order-input tier-input">
+      <mat-form-field class="small-input">
         <mat-select placeholder="Tier Count" required>
           <mat-option *ngFor="let tier of tiers" [value]="tierCount">{{tier}}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      $
-      <mat-form-field class="budget-input">
-        <input matInput placeholder="100.00">
+      <mat-form-field class="small-input">
+        <input type="number" matInput placeholder="100.00">
         <mat-label>Budget</mat-label>
       </mat-form-field>
 
-      <mat-form-field *ngIf=!glutenFree class="order-input">
+      <mat-form-field *ngIf=!glutenFree class="small-input">
         <mat-select placeholder="Cake flavors" required>
           <mat-optgroup *ngFor="let group of flavorGroups" [label]="group.name">
             <mat-option *ngFor="let flavor of group.flavors" [value]="flavor">{{flavor}}</mat-option>
@@ -110,28 +110,30 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="order-input">
+      <mat-form-field class="small-input">
         <mat-select placeholder="Cake Filling">
           <mat-option *ngFor="let filling of fillings" [value]="filling">{{filling}}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="order-input">
+      <mat-form-field class="small-input">
         <mat-select placeholder="Frosting Flavor" required>
           <mat-option *ngFor="let frosting of frostings" [value]="frosting">{{frosting}}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="order-input">
+      <mat-form-field class="xlarge-input">
         <mat-label>Comments</mat-label>
-        <textarea matInput placeholder="Tell us about your cake, or just say hello"></textarea>
+        <textarea matInput #comments maxlength="256" placeholder=""></textarea>
       </mat-form-field>
+      <mat-hint class="align-right">{{comments.value.length}} / 256</mat-hint>
     </mat-card-content>
   </mat-card>
   <div class="address-buffer"></div>
 
   <mat-card>
     <mat-card-content>
+      <h2>Drag and Drop Photos of Designs</h2>
 
       <div class="center clear-both">
         <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)">
@@ -160,32 +162,34 @@
   </mat-card>
 
   <div class="address-buffer"></div>
+
   <mat-card class="last-card">
     <mat-card-content>
+      <h2>Choose Some of our Treats</h2>
+      <button mat-icon-button color="primary" (click)="addTreatRow()">
+        <mat-icon color="accent">add</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="popTreatRow()">
+        <mat-icon color="accent">remove</mat-icon>
+      </button>
 
-      <div *ngFor="let i of treatRows">
-
-        <mat-form-field class="order-input">
-          <mat-select placeholder="More Treats" required>
+      <div *ngFor="let treat of treatRows; let i = index">
+        <mat-form-field class="large-input">
+          <mat-select placeholder="More Treats" required [(ngModel)]="treatRows[i].name">
             <mat-optgroup *ngFor="let group of moreTreats" [label]="group.name">
-              <mat-option *ngFor="let treat of group.flavors" [value]="treat">{{treat}}</mat-option>
+              <mat-option *ngFor="let flavor of group.flavors" [value]="treat">{{flavor}}</mat-option>
             </mat-optgroup>
           </mat-select>
         </mat-form-field>
-
-        <mat-form-field class="order-input">
-          <mat-select placeholder="Quantity" required>
+        <mat-form-field class="xsmall-input">
+          <mat-select [(ngModel)]="treatRows[i].quantity" placeholder="#" required>
             <mat-option *ngFor="let q of quantity" [value]="q">{{q}}</mat-option>
           </mat-select>
         </mat-form-field>
+        <button mat-icon-button color="primary" (click)="removeTreat(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
-
-          <button mat-button (click)="addTreatRow()">
-            <mat-icon>add</mat-icon>Add Another Treat!
-          </button>
-          <button mat-button (click)="popTreatRow()">
-            <mat-icon>remove</mat-icon>Remove Last Treat.
-          </button>
 
     </mat-card-content>
   </mat-card>
@@ -195,22 +199,24 @@
     <mat-card-content>
       <h3>Pay with PayPal</h3>
       <a href="https://www.paypal.com/us/signin" target="blank">
-        <mat-icon>credit_card</mat-icon>
+        <img class="paypal" src="D:/Iteration5/KarolinesCakes/assets/paypal.png">
       </a>
+      <div class="address-buffer"></div>
 
+      <button mat-raised-button color="primary" style="float: left;" (click)="pushAccount()">Submit</button>
     </mat-card-content>
   </mat-card>
-  <div class="address-buffer"></div>
-  <button mat-raised-button color="primary" style="float: right;">Submit</button>
+
+
 
   <!--FOOTER -->
 
   <div class="footer-container">
 
     <div class="contact-info">
-      <a href="https://www.instagram.com/explore/locations/698250740234496/sweet-karolines-cakes/" target="blank"><img src="/assets/IG.png"
+      <a href="https://www.instagram.com/explore/locations/698250740234496/sweet-karolines-cakes/" target="blank"><img src="D:/Iteration5/KarolinesCakes/assets/ig.png"
           class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png"
+      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="D:/Iteration5/KarolinesCakes/assets/fb.png"
           class="SM-icon FB"></a>
       <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
       <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>

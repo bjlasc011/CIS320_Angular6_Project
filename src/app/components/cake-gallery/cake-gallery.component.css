@@ -23,6 +23,7 @@ label {
   height: 200px;
   padding: 12px;
   object-fit: cover;
+  border-radius: 5px;
 }
 .col-small{
   width: 20vw;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UploadEvent, UploadFile } from 'ngx-file-drop';
+import { OrderService, Order } from '../services/order.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,15 +9,22 @@ import { UploadEvent, UploadFile } from 'ngx-file-drop';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
+  
   constructor(
-    private router: Router
+    private router: Router,
+    private orderService: OrderService
   ) { }
 
   ngOnInit() {
     this.minDate = new Date();
     this.deliveryType = 'undecided';
+    this.order = this.orderService.order;
   }
+
+  ngOnDestroy(){
+    this.orderService.order = this.order;
+  }
+
   public files: UploadFile[] = [];
  
   public dropped(event: UploadEvent) {
@@ -24,19 +32,19 @@ export class OrdersComponent implements OnInit {
     this.files.push(f);
     })
   }
-
   public deleteImg(uploadFile: UploadFile){
     this.files = this.files.filter((f)=>{
       return f.fileEntry.name !== uploadFile.fileEntry.name;
     })
   }
+  order: Order;
   newsletter: boolean = true;
   glutenFree: boolean = false;
   picker: Date;
   deliveryType: string;
   showAddress:boolean = false;
   minDate: Date;
-  treatRows: number[] = [0];
+  treatRows: Itreat[] = [{name: "Cookie Cake", quantity: 1}];
   tierCount: number = 1;
   tiers: String[] = ['1', '2', '3', 'Request 4+'];
   states: string[] = [
@@ -106,8 +114,8 @@ export class OrdersComponent implements OnInit {
     'Lemon Cream Cheese Frosting','Coconut Cream Cheese Frosting','Strawbetty Cream Cheese Frosting', 'Nutella'
   ]
 
-  quantity: string[] = [
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '10' 
+  quantity: number[] = [
+    1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
   ]
   public deliveryChange(): void{
     if(this.deliveryType=='delivery'){
@@ -123,9 +131,22 @@ export class OrdersComponent implements OnInit {
     this.router.navigate([link]);
   }
   addTreatRow(): void{
-    this.treatRows.push(0);
+    if(this.treatRows != undefined)
+      this.treatRows.push({name: "Cookie Cake", quantity: 1});
+    else this.treatRows = [{name: "Cookie Cake", quantity: 1}];
   }
   popTreatRow(){
     this.treatRows.pop();
   }
+  removeTreat(ind: number){
+    this.treatRows.splice(ind, 1);
+  }
+  pushAccount(){
+    this.router.navigate(['account']);
+  }
+}
+
+export interface Itreat{
+  name: string;
+  quantity: number;
 }

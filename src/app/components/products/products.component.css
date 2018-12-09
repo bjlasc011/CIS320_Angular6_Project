@@ -1,3 +1,10 @@
+.flex > div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: calc(100%/3);
+}
+
 .container{
   padding: 25px;
   position: absolute;
@@ -33,11 +40,17 @@ td {
   vertical-align: middle;
 }
 .grid-hover:hover {
-  background: #3f51b5;
-  font-size: 1.03rem;
-  color: azure;
+  /* background: #3f51b5f3; */
+  /* font-size: 1.3rem; */
+  font-weight: 800;
+  color: #3f51b5;;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-  transition: color 0.7s linear 0.2s;
+  /* transition: color 0.7s linear 0.2s; */
   transition: background 0.05s linear 0s;
-  transition: font-size 0.2s linear 0s;
+  cursor: pointer;
+  /* transition: font-size 0.2s linear 0s; */
+}
+.grid-list {
+  position: absolute;
+  left: 5px;
 }
