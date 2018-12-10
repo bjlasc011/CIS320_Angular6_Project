@@ -20,13 +20,13 @@ label {
   float: left;
   padding: 20px 10px 10px 20px;
 }
-
 .cake-img{
-  width: 200px;
-  height: 200px;
-  padding: 12px;
+  width: 350px;
+  height: 350px;
+  margin: 20px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 7px;
+  box-shadow: inset 1px 1px 20px rgba(0,0,0,0.5);  
 }
 .col-small{
   width: 20vw;

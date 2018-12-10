@@ -132,15 +132,15 @@ td, th {
   padding: 25px;
   position: absolute;
   top: 80px;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: 750px;
-  max-width: 60%;
-  min-width: 60%;
+  /* min-height: 100vh; */
+  max-width: calc(60% - 50px);
+  min-width: calc(60% - 50px);
   left: 20%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
+}
+.mat-card[_ngcontent-c6] {
+  width: inherit !important;
 }
 .order-spacer{
   height: 30px;

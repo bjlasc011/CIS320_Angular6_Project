@@ -17,9 +17,9 @@ label {
   position: absolute;
   top: 80px;
   min-height: 100vh;
-  max-width: calc(80% - 50px);
-  min-width: calc(80% - 50px);
-  left: 10%;
+  max-width: calc(60% - 50px);
+  min-width: calc(60% - 50px);
+  left: 20%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
   background: rgba(160, 151, 150, 0.025);
 }

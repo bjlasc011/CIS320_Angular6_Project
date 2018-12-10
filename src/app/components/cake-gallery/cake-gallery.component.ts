@@ -20,11 +20,8 @@ export class CakeGalleryComponent implements OnInit {
 
   ngOnInit() { }
 
-
-//   src="D:/Iteration5/KarolinesCakes/assets/1.png" (click)="enlargeImg('D:/Iteration5/KarolinesCakes/assets/.png1')" alt="oops">
-urlStr = "D:/Iteration5/KarolinesCakes/assets/2.png";
 cakes: Cake[] = [
-    { url: 'D:/Iteration5/KarolinesCakes/assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
+    { url: 'D:/Elaboration_Spec_Presentation/KarolinesCakes/assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/big_flower.png`, comments: '', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/bunny.png`, comments: '', cakeTypes: [] },

@@ -13,4 +13,7 @@ app-footer{
   position: relative;
   left:0;
   bottom:0;
+} 
+::ng-deep body{
+  background: rgba(255, 0, 157, 0.041);
 }

@@ -48,7 +48,7 @@ export class OrdersComponent implements OnInit {
   tierCount: number = 1;
   tiers: String[] = ['1', '2', '3', 'Request 4+'];
   states: string[] = [
-    'Kentucky', 'Indiana', 'Tennessee', 'Ohio'
+    'KY', 'IN', 'TN', 'OH'
   ];
   servings: string[] = [
     '6" cake (serves 12)',
