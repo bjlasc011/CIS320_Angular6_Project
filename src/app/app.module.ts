@@ -6,6 +6,7 @@ import { MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatTableModule
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -30,11 +31,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AccountComponent } from './components/account/account.component';
 import { ProductsComponent } from './components/products/products.component';
-<<<<<<< HEAD
-=======
 import { ContactComponent } from './components/contact/contact.component';
-import { AddPaymentMethodComponent } from './components/add-payment-method/add-payment-method.component';
->>>>>>> dev
+import { OrderEditComponent } from './components/order-edit/order-edit.component';
+import { OrderService } from './components/services/order.service';
+import { NewsletterConfirmComponent } from './components/newsletter-confirm/newsletter-confirm.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { AddPaymentMethodComponent } from './components/add-payment-method/add-p
     AccountComponent,
     ProductsComponent,
     ContactComponent,
-    AddPaymentMethodComponent
+    OrderEditComponent,
+    NewsletterConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +66,7 @@ import { AddPaymentMethodComponent } from './components/add-payment-method/add-p
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatNativeDateModule,
     MatSelectModule,
     MatSidenavModule,
@@ -78,13 +80,15 @@ import { AddPaymentMethodComponent } from './components/add-payment-method/add-p
     MatProgressSpinnerModule
   ],
   providers: [
-    MatNativeDateModule
+    MatNativeDateModule,
+    OrderService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
     ImgDialogComponent,
-    AddPaymentMethodComponent,
-    LoginComponent
+    LoginComponent,
+    OrderEditComponent,
+    NewsletterConfirmComponent
   ]
 })
 export class AppModule { }

@@ -1,149 +1,99 @@
 <div class="main-container">
-  <h1 class="form-header">Sign Up for an Account</h1>
-  <mat-card>
+  <div>
+    <h1 class="form-header">Sign Up for an Account</h1>
+  </div>
+
+
+  <mat-card _ngcontent-c6>
     <mat-card-content>
-
       <div class="order-form">
-        <mat-form-field class="order-input name-input">
+        <mat-form-field class="large-input">
           <mat-label>First Name</mat-label>
-          <input matInput placeholder="First" [(ngModel)]="firstName" required>
+          <input matInput placeholder="First" [(ngModel)]="firstName" required maxlength="50">
         </mat-form-field>
 
-        <mat-form-field class="order-input name-input">
+        <mat-form-field class="large-input" >
           <mat-label>Last Name</mat-label>
-          <input matInput placeholder="Last" required>
+          <input matInput placeholder="Last" [(ngModel)]="lastName" required maxlength="50">
         </mat-form-field>
 
-        <mat-form-field class="order-input">
+        <mat-form-field class="large-input">
           <mat-label>Phone</mat-label>
-          <input matInput placeholder="(502)123-4567" type="tel">
+          <input matInput placeholder="(502)123-4567" type="tel" [(ngModel)]="phone" maxlength="10">
         </mat-form-field>
 
-        <mat-form-field class="order-input">
-          <input matInput placeholder="your@email.com" type="email" required>
+        <mat-form-field class="large-input">
+          <input matInput placeholder="your@email.com" type="email" [(ngModel)]="email" required maxlength="50">
           <mat-label>E-mail</mat-label>
         </mat-form-field>
-        <mat-checkbox color="primary" [(ngModel)]="newsletter">
+        <mat-checkbox color="primary" [(ngModel)]="newsletter" class="small-input">
           sign up for newsletter
         </mat-checkbox>
       </div>
+    </mat-card-content>
+  </mat-card>
 
-
-      <div class="address-buffer"></div>
-      <h4 class="sub-header">Address information isn't required, but will make delivery orders more convenient </h4>
+  <mat-card _ngcontent-c6>
+    <mat-card-content>
+      <h4 class="sub-header"><em> information isn't required, but will make delivery orders more convenient </em></h4>
 
       <mat-form-field class="large-input">
         <input matInput placeholder="Address">
         <mat-label>Address Line 1</mat-label>
       </mat-form-field>
+
       <mat-form-field class="large-input">
         <input matInput placeholder="Apartment">
         <mat-label>Address Line 2</mat-label>
       </mat-form-field>
 
       <div class="city-state-zip">
-        <mat-form-field class="order-input">
+        <mat-form-field class="small-input">
           <input matInput placeholder="City">
           <mat-label>City</mat-label>
         </mat-form-field>
-        <mat-form-field>
+
+        <mat-form-field class="small-input">
           <mat-select placeholder="State">
             <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="order-input">
+
+        <mat-form-field class="small-input">
           <input matInput placeholder="zip-code">
           <mat-label>Zip</mat-label>
         </mat-form-field>
       </div>
+    </mat-card-content>
+  </mat-card>
 
-    </mat-card-content>
-  </mat-card>
+
   <div class="card-spacer"></div>
-  <h3 class="payment-header">
-    <mat-icon class="card-icon">credit_card</mat-icon>Payment Methods
-  </h3>
-  <mat-card>
+
+
+  <mat-card _ngcontent-c6>
     <mat-card-content>
-      <div class="credit-card">
-        <mat-form-field class="order-input">
-          <input matInput placeholder="Name on Card">
-          <mat-label>Name on Card</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Card Type">
-            <mat-option *ngFor="let cardType of cardTypes" [value]="cardType">{{cardType}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="order-input">
-          <input matInput minlength="16" maxlength="16" placeholder="**** **** **** 1234">
-          <mat-label>Card Number</mat-label>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Exp Month">
-            <mat-option *ngFor="let month of months" [value]="month">{{month}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="sm-input">
-          <mat-select placeholder="Exp Year">
-            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <div class="card-spacer"></div>
-  <mat-card>
-    <mat-card-content>
-      <mat-form-field class="order-input">
-        <input matInput placeholder="Username" required>
-        <mat-label>Username</mat-label>
+
+      <mat-form-field class="xlarge-input">
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"  required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
-      <mat-form-field class="order-input">
-        <input matInput type="password" placeholder="password" required>
-        <mat-label>Password</mat-label>
+
+      <mat-form-field class="xlarge-input">
+        <input matInput placeholder="Verify your Password" [type]="hide ? 'password' : 'text'"  required>
       </mat-form-field>
-      <mat-form-field class="order-input">
-        <input matInput type="password" placeholder="input password again" required>
-        <mat-label>Verify Password</mat-label>
-      </mat-form-field>
+
+      <div class="card-spacer"></div>
+
       <div>
-        <button mat-flat-button color="primary">Submit</button>
+        <button mat-flat-button color="primary" (click)="pushAccount()">Submit</button>
       </div>
-
     </mat-card-content>
   </mat-card>
-  <!-- <div class="card-spacer"></div> -->
 
 
+  <div class="card-spacer"></div>
 
   <!--FOOTER -->
-
-  <div class="footer-container">
-
-    <div class="contact-info">
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/IG.png" class="SM-icon FB"></a>
-      <a href="https://www.facebook.com/pg/sweetkarolinescakes/about/" target="blank"><img src="/assets/FBicon.svg.png" class="SM-icon FB"></a>
-      <a class="phone-email" href="tel:1(502)417-8179">(502) 417-8179</a>
-      <a class="phone-email" href="mailto:sweetkarolinescakes@gmail.com">sweetkarolinescakes@gmail.com</a>
-    </div>
-
-    <div class="newsletter-ft">
-      <h4 class="newsletter-header-ft">Sign up for out Newsletter!</h4>
-      <section class="newsletter-section">
-        <mat-form-field>
-          <input matInput class="input-email">
-          <mat-label class="input-label-email">Email</mat-label>
-        </mat-form-field>
-        <button mat-flat-button class="sign-up-button" color="accent">Sign up</button>
-      </section>
-    </div>
-    <!-- </div> -->
+  <app-footer></app-footer>
   </div>
-
-
-
-
-  <!-- First Last Phone Email Date needed Pickup date(requested) Details Servings Budget Image drop for designed theme/type
-    Tier #=> drop down which includes all flavors frosting flavor for whole cake fillings yes/no if yes => enable a comment
-    field glueten free yes/no + pie drop down Request summary Do you want newsletter -->

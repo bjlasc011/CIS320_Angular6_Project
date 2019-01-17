@@ -8,3 +8,9 @@
   cursor: pointer;
   color: #3f51b5;
 }
+a {
+  color: mediumblue;
+}
+ a:hover{
+   cursor: pointer;
+ }

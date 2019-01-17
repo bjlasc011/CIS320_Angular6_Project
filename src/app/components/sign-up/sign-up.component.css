@@ -16,23 +16,27 @@ label {
   padding-top:20px;
   padding-right: 20px;
 }
+.side-by-side{
+  padding: 15px;
+  margin: 5px;
+}
+.mat-card[_ngcontent-c6] {
+  width: inherit !important;
+}
+.grid{
+  width: 100%;
+  min-width: 500px;
+}
 .main-container {
   padding: 25px;
   position: absolute;
   top: 80px;
   min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  flex-basis: 750px;
-  max-width: 60%;
-  min-width: 750px;
+  max-width: calc(60% - 50px);
+  min-width: calc(60% - 50px);
   left: 20%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-  background: rgba(160, 151, 150, 0.025);
-}
-.sm-input{
-  padding: 0px 20px 5px 20px ;
-  width: 130px;
+  background: rgba(255, 0, 157, 0.025);
 }
 .order-form > label {
   padding: 20px 10px 25px 5px;
@@ -44,10 +48,21 @@ label {
   float: left;
   padding: 20px 20px 10px 0px;
 }
-::ng-deep .large-input {
-  max-width: 300px;
-  min-width: 300px;
-  padding: 4px 20px 5px 20px ;
+.large-input {
+  width: calc(50% - 20px);
+  padding: 5px 10px 5px 10px;
+}
+.small-input {
+  width: calc(33.33% - 20px);
+  padding: 5px 10px 5px 10px;
+}
+.xsmall-input{
+  width: 60px;
+  padding: 5px 10px;
+}
+.xlarge-input{
+  width: calc(100% - 20px);
+  padding: 5px 10px 5px 10px;
 }
 ::ng-deep .comments {
   min-height: 80px;
@@ -206,6 +221,7 @@ a {
 }
 .order-input{
   padding-right: 20px;
+  width: 90%;
 }
 .input-email{
   background: #5770fdd5;
@@ -225,7 +241,7 @@ a {
 }
 .card-spacer{
   width: 100%;
-  height: 10px;
+  padding: 10px;
 }
 .order-input {
   padding: 0px 20px 5px 20px ;

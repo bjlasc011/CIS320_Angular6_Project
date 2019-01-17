@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { FooterComponent } from '../footer/footer.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AddPaymentMethodComponent } from '../add-payment-method/add-payment-method.component';
+import { OrderEditComponent, IEditOrder } from '../order-edit/order-edit.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -9,27 +9,12 @@ import { AddPaymentMethodComponent } from '../add-payment-method/add-payment-met
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  cancel: boolean = false;
+  editFormSub: Subscription;
+  addressEdit: boolean = false;
+  phoneEdit: boolean = false;
+  emailEdit: boolean = false;
 
-  constructor(
-    private dialog: MatDialog
-  ) { }
-  cards: any = [
-    {
-      cardNumber: "1234567890123456",
-      expDate: "DEC 2020",
-      cardType: "Visa"
-    },
-    {
-      cardNumber: "1234567890121108",
-      expDate: "SEP 2019",
-      cardType: "AMEX"
-    },
-  ]
-
-  ngOnInit() {
-  }
-
-  edit: boolean = false;
   firstName = "Ben";
   lastName = "Lascurain";
   phone = "(502) 662-5800";
@@ -39,30 +24,136 @@ export class AccountComponent implements OnInit {
   city = "Louisville";
   state = "KY";
   zip = "40243";
-  orders = [
-    { orderDate: "5/15/2018", fullfilledDate: "5/30/2018", orderNum: "1665553", price: "$85.77", description: "10\" & 6\" double stack French Vanilla", payment: "Visa ***4562" },
-    { orderDate: "6/1/2018", fullfilledDate: "7/1/2018", orderNum: "1665589", price: "$70.20", description: "8\" double layer", payment: "Visa ***4562" },
-    { orderDate: "5/2/2018", fullfilledDate: "pending", orderNum: "1665888", price: "$102.10", description: "Full sheet cake (serves 72)", payment: undefined },
-  ]
-  openDialog: MatDialogRef<AddPaymentMethodComponent, any>;
+  orderDate: Date | string = new Date().toLocaleDateString();
+  deliveryType: string = 'delivery';
+  deliveryDate: Date | string = new Date().toLocaleDateString();
+  fullfilledDate: Date | string = 'pending';
+  orderNum: string = '12005';
+  price: string = `$80.56`
+  description: string = "Some cake discription goes here.";
+  payment: string = 'pending';
+  tierCount: string = '2';
+  servings: string = '10" and 6" dbouble stack (serves 40-45)';
+  flavorCake: string = 'Italian Cream';
+  flavorFrosting: string = 'Raspberry Buttercream';
+  fillings: string = 'None';
 
-  openNewDialog() {
-    this.openDialog = this.dialog.open(AddPaymentMethodComponent, {
-      width: '600px',
-      height: '500px'
-    });
-    this.openDialog.componentInstance.onSubmit.subscribe((data) => {
-      console.log(data);
-      if (data.close) {
-        this.openDialog.close();
-        this.cards.push({cardNumber: data.cardNumber, expDate: `${data.month} ${data.year}`, cardType: data.cardType });
+  constructor( private dialog: MatDialog) { }
+
+  ngOnInit(){}
+  
+  ngOnDestroy() {}
+
+  orders = [
+    {
+      address1: this.address1,
+      address2: this.address2,
+      city: this.city,
+      state: this.state,
+      zip: this.zip,
+      orderDate: this.orderDate, //submitted on
+      deliveryDate: this.deliveryDate, //requested on
+      deliveryType: this.deliveryType,
+      fullfilledDate: this.fullfilledDate,
+      orderNum: '23456',
+      price: this.price,
+      description: this.description,
+      payment: this.payment,
+      tierCount: this.tierCount,
+      servings: this.servings,
+      flavorCake: this.flavorCake,
+      flavorFrosting: this.flavorFrosting,
+      fillings: this.fillings
+    },
+    {
+      address1: this.address1,
+      address2: this.address2,
+      city: this.city,
+      state: this.state,
+      zip: this.zip,
+      orderDate: this.orderDate, //submitted on
+      deliveryDate: this.deliveryDate, //requested on
+      deliveryType: this.deliveryType,
+      fullfilledDate: new Date().toLocaleDateString(),
+      orderNum: '02616',
+      price: '$120.22',
+      description: 'Birthday cake for',
+      payment: 'paid',
+      tierCount: this.tierCount,
+      servings: '10" and 6" dbouble stack (serves 40-45)',
+      flavorCake: this.flavorCake,
+      flavorFrosting: this.flavorFrosting,
+      fillings: this.fillings
+    },
+    {
+      address1: this.address1,
+      address2: this.address2,
+      city: this.city,
+      state: this.state,
+      zip: this.zip,
+      orderDate: new Date().toLocaleDateString(), //submitted on
+      deliveryDate: new Date('December 17, 2018 03:24:00').toLocaleDateString() , //requested on
+      deliveryType: this.deliveryType,
+      fullfilledDate: this.fullfilledDate,
+      orderNum: this.orderNum,
+      price: this.price,
+      description: this.description,
+      payment: this.payment,
+      tierCount: this.tierCount,
+      servings: this.servings,
+      flavorCake: this.flavorCake,
+      flavorFrosting: this.flavorFrosting,
+      fillings: this.fillings
+    }
+  ]
+  states: string[] = [
+    'KY', 'IN', 'TN', 'OH'
+  ];
+
+  submit() {
+    this.emailEdit = false;
+    this.addressEdit = false;
+    this.phoneEdit = false;
+  }
+  editPhone() {
+    this.phoneEdit = true;
+  }
+  editAddress() {
+    this.addressEdit = true;
+  }
+  editEmail() {
+    this.emailEdit = true;
+  }
+
+  openEditOrder(o: any): void {
+    const dialogRef = this.dialog.open(OrderEditComponent, {
+      width: '700px',
+      height: '80%',
+      data:
+      {
+        address1: o.address1,
+        address2: o.address2,
+        city: o.city,
+        state: o.state,
+        zip: o.zip,
+
+        deliveryDate: o.deliveryDate,
+        deliveryType: o.deliveryType,
       }
     });
-    this.openDialog.componentInstance.onCancel.subscribe((data) => {
-      (data.close) ? this.openDialog.close() : null;
+
+    dialogRef.componentInstance.onCancel.subscribe( cancel => {
+      cancel ? dialogRef.close() : null;
+      return;
+    })
+
+    dialogRef.componentInstance.onSubmit.subscribe(data => {
+      console.log("data on account sub")
+      console.log(data)
+      this.deliveryDate = data.deliveryDate;
+      this.deliveryType = data.deliveryType;
+      return;
     })
   }
-  addPaymentMethod() {
-    this.openNewDialog();
-  }
+
 }

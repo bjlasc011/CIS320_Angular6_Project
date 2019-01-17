@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UploadEvent, UploadFile, FileComponent, FileSystemFileEntry } from 'ngx-file-drop';
+import { UploadEvent, UploadFile } from 'ngx-file-drop';
+import { OrderService, Order } from '../services/order.service';
 
 @Component({
   selector: 'app-orders',
@@ -8,15 +9,22 @@ import { UploadEvent, UploadFile, FileComponent, FileSystemFileEntry } from 'ngx
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
+  
   constructor(
-    private router: Router
+    private router: Router,
+    private orderService: OrderService
   ) { }
 
   ngOnInit() {
     this.minDate = new Date();
     this.deliveryType = 'undecided';
+    this.order = this.orderService.order;
   }
+
+  ngOnDestroy(){
+    this.orderService.order = this.order;
+  }
+
   public files: UploadFile[] = [];
  
   public dropped(event: UploadEvent) {
@@ -24,25 +32,23 @@ export class OrdersComponent implements OnInit {
     this.files.push(f);
     })
   }
-
   public deleteImg(uploadFile: UploadFile){
     this.files = this.files.filter((f)=>{
       return f.fileEntry.name !== uploadFile.fileEntry.name;
     })
   }
+  order: Order;
   newsletter: boolean = true;
   glutenFree: boolean = false;
   picker: Date;
   deliveryType: string;
   showAddress:boolean = false;
   minDate: Date;
+  treatRows: Itreat[] = [{name: "Cookie Cake", quantity: 1}];
   tierCount: number = 1;
   tiers: String[] = ['1', '2', '3', 'Request 4+'];
-  cardTypes: string[] = ["Visa", "Mastercard", "Discover", "AMEX"];
-  years: string[] = ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"];
-  months: string[] = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP","OCT", "NOV", "DEC"];
   states: string[] = [
-    'Kentucky', 'Indiana', 'Tennessee', 'Ohio'
+    'KY', 'IN', 'TN', 'OH'
   ];
   servings: string[] = [
     '6" cake (serves 12)',
@@ -79,7 +85,10 @@ export class OrdersComponent implements OnInit {
       flavors: [
         'Vanilla', 'Chocolate', 'Carrot', 'Strawberry', 'Banana'
       ]
-    },
+    }
+  ]
+  
+  moreTreats: Object[] = [
     {
       name: 'Cupcakes',
       flavors: [
@@ -92,7 +101,6 @@ export class OrdersComponent implements OnInit {
         'Cookie Cake', '9" Pie', 'Cake Pops', 'Cakes with Fresh Fruit'
       ]
     }
-    
   ]
 
   frostings: String[] = [
@@ -104,6 +112,10 @@ export class OrdersComponent implements OnInit {
   fillings: String[] = [
     'None','Salted Caramel', 'Fruit Preserves', 'Lemon Curd','Chocolate Ganache', 'Marshmallow',  'Peanut Butter Buttercream', 
     'Lemon Cream Cheese Frosting','Coconut Cream Cheese Frosting','Strawbetty Cream Cheese Frosting', 'Nutella'
+  ]
+
+  quantity: number[] = [
+    1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
   ]
   public deliveryChange(): void{
     if(this.deliveryType=='delivery'){
@@ -118,4 +130,23 @@ export class OrdersComponent implements OnInit {
     const link = ['/cake-gallery']
     this.router.navigate([link]);
   }
+  addTreatRow(): void{
+    if(this.treatRows != undefined)
+      this.treatRows.push({name: "Cookie Cake", quantity: 1});
+    else this.treatRows = [{name: "Cookie Cake", quantity: 1}];
+  }
+  popTreatRow(){
+    this.treatRows.pop();
+  }
+  removeTreat(ind: number){
+    this.treatRows.splice(ind, 1);
+  }
+  pushAccount(){
+    this.router.navigate(['account']);
+  }
+}
+
+export interface Itreat{
+  name: string;
+  quantity: number;
 }
