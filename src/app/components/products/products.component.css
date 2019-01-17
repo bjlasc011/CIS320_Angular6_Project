@@ -47,5 +47,8 @@ td {
   cursor: pointer;
 }
 ::ng-deep .primary{
-  color: #3f51b5;  
+  color: #3f51b5;
+}
+::ng-deep .primary:hover{
+  cursor: pointer;
 }

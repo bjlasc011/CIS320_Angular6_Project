@@ -34,6 +34,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { OrderEditComponent } from './components/order-edit/order-edit.component';
 import { OrderService } from './components/services/order.service';
+import { NewsletterConfirmComponent } from './components/newsletter-confirm/newsletter-confirm.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { OrderService } from './components/services/order.service';
     AccountComponent,
     ProductsComponent,
     ContactComponent,
-    OrderEditComponent
+    OrderEditComponent,
+    NewsletterConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ import { OrderService } from './components/services/order.service';
   entryComponents: [
     ImgDialogComponent,
     LoginComponent,
-    OrderEditComponent
+    OrderEditComponent,
+    NewsletterConfirmComponent
   ]
 })
 export class AppModule { }

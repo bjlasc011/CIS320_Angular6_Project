@@ -16,7 +16,7 @@ const ROUTES: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'contact', component: ContactComponent },  
-  { path: '**', component: OrdersComponent }
+  { path: '**', component: CakeGalleryComponent }
 
 ];
 

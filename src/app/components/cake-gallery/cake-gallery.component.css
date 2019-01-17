@@ -17,16 +17,24 @@ label {
   background: rgba(160, 151, 150, 0.025);
 }
 .gallery-header{
+  width: 100%;
+  align-content: center;
+  color: #272727;
+  font-size: 3rem;
+  text-shadow: 2px 2px #ffffff;
+  padding: 20px 10px 10px 20px;
+}
+.gallery-subheader{
   float: left;
   padding: 20px 10px 10px 20px;
 }
 .cake-img{
   width: 350px;
   height: 350px;
-  margin: 20px;
+  margin: 40px;
   object-fit: cover;
   border-radius: 7px;
-  box-shadow: inset 1px 1px 20px rgba(0,0,0,0.5);  
+  box-shadow: 1px 4px 20px rgba(0,0,0,0.8);  
 }
 .col-small{
   width: 20vw;
