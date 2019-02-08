@@ -21,7 +21,7 @@ export class CakeGalleryComponent implements OnInit {
   ngOnInit() { }
 
 cakes: Cake[] = [
-    { url: 'D:/Elaboration_Spec_Presentation/KarolinesCakes/assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
+    { url: '/assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/big_flower.png`, comments: '', cakeTypes: [] },
     { url: `D:/Iteration3/KarolinesCakes/assets/bunny.png`, comments: '', cakeTypes: [] },
@@ -52,8 +52,8 @@ cakes: Cake[] = [
   openNewDialog(cakeUrl) {
     this.openDialog = this.dialog.open(
       ImgDialogComponent, {
-        width: '70%',
-        height: '80%',
+        width: '800px',
+        height: '800px',
         data: { imgUrl: cakeUrl }
       });
   }
@@ -63,6 +63,7 @@ cakes: Cake[] = [
       this.openNewDialog(cakeUrl);
   }
 }
+
 export interface Cake{
   url: string | SafeUrl;
   comments: string;

@@ -53,7 +53,8 @@ import { NewsletterConfirmComponent } from './components/newsletter-confirm/news
     NewsletterConfirmComponent
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule, 
+    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
     FileDropModule,
     FormsModule,
