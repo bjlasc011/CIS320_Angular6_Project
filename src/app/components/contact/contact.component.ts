@@ -11,6 +11,6 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
   }
-  image: string = '/assets/ig.png';
+  image: string = './assets/ig.png';
 
 }

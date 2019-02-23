@@ -21,21 +21,21 @@ export class CakeGalleryComponent implements OnInit {
   ngOnInit() { }
 
 cakes: Cake[] = [
-    { url: '/assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/big_flower.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/bunny.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/elsa.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/gift_bag.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/happy_bday.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/pink_swirls.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/Red_White_Minnie.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/shamrocks.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/1.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/2.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/3.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/4.png`, comments: '', cakeTypes: [] },
-    { url: `D:/Iteration3/KarolinesCakes/assets/5.png`, comments: '', cakeTypes: [] },
+    { url: './assets/2.png', comments: 'Some comments would go here about how awesome Karoline\'s cakes are', cakeTypes: [] },
+    { url: `./assets/bee_cupcakes.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/big_flower.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/bunny.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/elsa.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/gift_bag.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/happy_bday.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/pink_swirls.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/Red_White_Minnie.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/shamrocks.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/1.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/2.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/3.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/4.png`, comments: '', cakeTypes: [] },
+    { url: `./assets/5.png`, comments: '', cakeTypes: [] },
   ];
 
   cakeTypes: string[] = [
