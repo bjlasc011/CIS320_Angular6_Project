@@ -1,3 +1,7 @@
+# ATTENTION
+
+This project was done in class during some freetime to avoid having to write another ASP.NET Web App. It does not reflect my current professional development and was my second or third Angular app ever made.
+
 # KarolinesCakes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
